@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter, usePathname } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Search } from "@mui/icons-material";
 import { geners } from "./genres";
 
@@ -11,10 +11,10 @@ const InputSearch = () => {
 
   const router = useRouter();
   const pathName = usePathname();
-  const query = pathName.split("/");
-  const pageQuery = query[2];
-
-  console.log(selectValues);
+  const pageQuery = useMemo(() => {
+    const query = pathName.split("/");
+    return query[2];
+  }, [pathName]);
 
   const HandleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
@@ -41,7 +41,6 @@ const InputSearch = () => {
 
     return () => clearTimeout(searchAction);
   }, [router, inputValue, selectValues, pageQuery]);
-
   return (
     <>
       <div className=" md:w-[320px] flex items-center text-white bg-[#161616] rounded-2xl outline-none border-none">
