@@ -122,7 +122,7 @@ export const fetchResearchedAnimes = async (
 ): Promise<Animes[]> => {
   const { data } = await client.query<AnimeData>({
     query: gql`
-      queryy ($search: String) {
+      query ($search: String) {
         Page(page: 1) {
           media(type: ANIME, isAdult: false, search: $search) {
             id
