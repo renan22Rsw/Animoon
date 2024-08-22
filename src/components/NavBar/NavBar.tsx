@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import { Menu } from "./nav";
 
-import logo from "../../app/favicon.ico";
+import logo from "../../../public/images/favicon.png";
 
 import Link from "next/link";
 import MoblieNav from "../SpeedDial/SpeedDial";

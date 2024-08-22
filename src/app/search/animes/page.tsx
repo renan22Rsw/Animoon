@@ -16,6 +16,7 @@ import MainPagesGrid from "@/components/Grids/MainPagesGrid";
 import { useGenresAnimes } from "@/hooks/AnimesGenres/useAnimesGenres";
 import useSearchGenre from "@/hooks/AnimesGenres/useSearchGenre";
 import Link from "next/link";
+import ApiNotWorking from "@/components/ApiNotWorking/ApiNotWorking";
 
 const AnimePage = () => {
   const query = useSearchParams();
@@ -60,7 +61,7 @@ const AnimePage = () => {
     genresAnimesIsError ||
     seachGenreAnimeIsError
   ) {
-    return <h1>The api is not working</h1>;
+    return <ApiNotWorking />;
   }
 
   const seasonal = seasonalAnime?.slice(0, 6) || [];
