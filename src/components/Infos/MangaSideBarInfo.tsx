@@ -44,13 +44,13 @@ const MangaSideBarInfo = ({
     {
       id: 3,
       titles: "Average Score",
-      infos: averageScore + "%",
+      infos: averageScore ? averageScore + "%" : "N/A",
     },
 
     {
       id: 4,
       titles: "Mean Score",
-      infos: meanScore + "% ",
+      infos: meanScore ? meanScore + "% " : "N/A",
     },
 
     {

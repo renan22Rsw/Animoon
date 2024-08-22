@@ -43,7 +43,7 @@ const AnimeSideBarInfo = ({
     {
       id: 2,
       titles: "Episode Duration",
-      infos: duration + " min",
+      infos: duration ? duration + "min" : "N/A",
     },
     {
       id: 3,
@@ -66,13 +66,13 @@ const AnimeSideBarInfo = ({
     {
       id: 6,
       titles: "Average Score",
-      infos: averageScore + "%",
+      infos: averageScore ? averageScore + "%" : "N/A",
     },
 
     {
       id: 7,
       titles: "Mean Score",
-      infos: meanScore + "% ",
+      infos: meanScore ? meanScore + "% " : "N/A",
     },
 
     {
