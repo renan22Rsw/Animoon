@@ -51,33 +51,35 @@ const actions = [
   },
 ];
 
-export default function MoblieNav() {
+export default function MoblieNav(props: any) {
   return (
-    <SpeedDial
-      className="lg:hidden md:p-10"
-      ariaLabel="SpeedDial openIcon example"
-      sx={{
-        position: "fixed",
-        bottom: 16,
-        right: 16,
-        "& .MuiFab-primary": {
-          backgroundColor: "#161616",
-          "&:hover": {
+    <div {...props}>
+      <SpeedDial
+        className="lg:hidden md:p-10"
+        ariaLabel="SpeedDial openIcon example"
+        sx={{
+          position: "fixed",
+          bottom: 16,
+          right: 16,
+          "& .MuiFab-primary": {
             backgroundColor: "#161616",
+            "&:hover": {
+              backgroundColor: "#161616",
+            },
           },
-        },
-      }}
-      icon={
-        <SpeedDialIcon openIcon={<CloseOutlinedIcon />} icon={<MenuIcon />} />
-      }
-    >
-      {actions.map((action) => (
-        <SpeedDialAction
-          key={action.name}
-          icon={action.icon}
-          tooltipTitle={action.name}
-        />
-      ))}
-    </SpeedDial>
+        }}
+        icon={
+          <SpeedDialIcon openIcon={<CloseOutlinedIcon />} icon={<MenuIcon />} />
+        }
+      >
+        {actions.map((action) => (
+          <SpeedDialAction
+            key={action.name}
+            icon={action.icon}
+            tooltipTitle={action.name}
+          />
+        ))}
+      </SpeedDial>
+    </div>
   );
 }

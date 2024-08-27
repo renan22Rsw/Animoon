@@ -27,7 +27,7 @@ const NavBar = () => {
             ))}
           </ul>
         </div>
-        <MoblieNav />
+        <MoblieNav data-testid="moblie-nav" />
       </nav>
     </>
   );
