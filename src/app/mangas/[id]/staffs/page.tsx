@@ -4,7 +4,7 @@ import CardStaff from "@/components/Cards/CardStaff";
 import AnimeContainer from "@/components/Container/AnimeContainer";
 import StaffContainer from "@/components/Container/StaffContainer";
 import Header from "@/components/Header/Header";
-import MangaSideBarInfo from "@/components/Infos/MangaSideBarInfo";
+import MangaSideBarInfo from "@/components/Infos/MangaInfo/MangaSideBarInfo";
 import { Manga } from "@/types/manga";
 import React from "react";
 

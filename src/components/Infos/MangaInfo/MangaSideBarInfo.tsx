@@ -2,15 +2,11 @@ import React from "react";
 
 interface InfosProps {
   format: string;
-  duration: number;
   status: string;
-  seasonYear: number;
-  season: string;
   averageScore: number;
   meanScore: number;
   popularity: number;
   favourites: number;
-
   source: string;
   genres: string[];
 }
@@ -21,12 +17,9 @@ interface Titles {
   infos: string | string[] | number;
 }
 
-const AnimeSideBarInfo = ({
+const MangaSideBarInfo = ({
   format,
-  duration,
   status,
-  season,
-  seasonYear,
   averageScore,
   meanScore,
   popularity,
@@ -40,61 +33,45 @@ const AnimeSideBarInfo = ({
       titles: "Format",
       infos: format,
     },
+
     {
       id: 2,
-      titles: "Episode Duration",
-      infos: duration ? duration + "min" : "N/A",
-    },
-    {
-      id: 3,
       titles: "Status",
       infos: status,
     },
 
     {
-      id: 4,
-      titles: "Season",
-      infos: season,
-    },
-
-    {
-      id: 5,
-      titles: "Season Year",
-      infos: seasonYear,
-    },
-
-    {
-      id: 6,
+      id: 3,
       titles: "Average Score",
       infos: averageScore ? averageScore + "%" : "N/A",
     },
 
     {
-      id: 7,
+      id: 4,
       titles: "Mean Score",
       infos: meanScore ? meanScore + "% " : "N/A",
     },
 
     {
-      id: 8,
+      id: 5,
       titles: "Popularity",
       infos: popularity,
     },
 
     {
-      id: 9,
+      id: 6,
       titles: "Favorites",
       infos: favourites,
     },
 
     {
-      id: 10,
+      id: 7,
       titles: "Genres",
       infos: genres.join(", "),
     },
 
     {
-      id: 11,
+      id: 8,
       titles: "Source",
       infos: source,
     },
@@ -114,4 +91,4 @@ const AnimeSideBarInfo = ({
   );
 };
 
-export default AnimeSideBarInfo;
+export default MangaSideBarInfo;

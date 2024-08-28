@@ -9,8 +9,8 @@ import StaffContainer from "@/components/Container/StaffContainer";
 import Trailer from "@/components/Container/Trailer";
 import Description from "@/components/Description/Description";
 import Header from "@/components/Header/Header";
-import AnimeSideBar from "@/components/Infos/AnimeSideBarInfo";
-import AnimeRecomendations from "@/components/Recomendations/AnimeRecomendations";
+import AnimeSideBar from "@/components/Infos/AnimeInfo/AnimeSideBarInfo";
+import AnimeRecomendations from "@/components/Recomendations/Animes/AnimeRecomendations";
 
 import { Anime } from "@/types/anime";
 

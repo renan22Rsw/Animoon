@@ -3,7 +3,7 @@ import { Anime } from "@/types/anime";
 import React from "react";
 
 import Header from "@/components/Header/Header";
-import AnimeSideBarInfo from "@/components/Infos/AnimeSideBarInfo";
+import AnimeSideBarInfo from "@/components/Infos/AnimeInfo/AnimeSideBarInfo";
 import AnimeContainer from "@/components/Container/AnimeContainer";
 import StaffContainer from "@/components/Container/StaffContainer";
 import CardStaff from "@/components/Cards/CardStaff";

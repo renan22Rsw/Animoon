@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 
 const SubTitles = ({ children }: { children: ReactNode }) => {
-  return <h3 className="m-4 px-4 text-[#EDEDED]">{children}</h3>;
+  return <div className="m-4 px-4 text-[#EDEDED]">{children}</div>;
 };
 
 export default SubTitles;

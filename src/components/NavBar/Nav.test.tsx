@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
 import NavBar from "./NavBar";
-import MoblieNav from "../SpeedDial/SpeedDial";
 
 jest.mock("./nav", () => ({
   Menu: [
@@ -16,7 +15,10 @@ describe("NavBar component", () => {
     render(<NavBar />);
     const logoImage = screen.getByRole("img");
     expect(logoImage).toBeInTheDocument();
-    expect(logoImage).toHaveAttribute("src");
+    expect(logoImage).toHaveAttribute(
+      "src",
+      expect.stringMatching(/\/_next\/image\?url=%2Fimg.jpg&w=128&q=75/i)
+    );
   });
 
   it("should render menu items", () => {

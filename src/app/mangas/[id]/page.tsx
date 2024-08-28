@@ -8,8 +8,8 @@ import StaffContainer from "@/components/Container/StaffContainer";
 import Trailer from "@/components/Container/Trailer";
 import Description from "@/components/Description/Description";
 import Header from "@/components/Header/Header";
-import MangaSideBarInfo from "@/components/Infos/MangaSideBarInfo";
-import MangaRecomendations from "@/components/Recomendations/MangaRecomendations";
+import MangaSideBarInfo from "@/components/Infos/MangaInfo/MangaSideBarInfo";
+import MangaRecomendations from "@/components/Recomendations/Mangas/MangaRecomendations";
 
 import { Manga } from "@/types/manga";
 import React from "react";

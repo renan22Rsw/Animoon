@@ -3,7 +3,7 @@ import CardCharacters from "@/components/Cards/CardCharacters";
 import AnimeContainer from "@/components/Container/AnimeContainer";
 import CharactersContainer from "@/components/Container/CharactersContainer";
 import Header from "@/components/Header/Header";
-import AnimeSideBarInfo from "@/components/Infos/AnimeSideBarInfo";
+import AnimeSideBarInfo from "@/components/Infos/AnimeInfo/AnimeSideBarInfo";
 import { Anime } from "@/types/anime";
 
 import React from "react";
