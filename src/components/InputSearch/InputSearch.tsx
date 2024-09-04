@@ -11,9 +11,10 @@ const InputSearch = () => {
 
   const router = useRouter();
   const pathName = usePathname();
+
   const pageQuery = useMemo(() => {
-    const query = pathName.split("/");
-    return query[2];
+    const query = pathName?.split("/") || [];
+    return query[2] || "default value";
   }, [pathName]);
 
   const HandleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -52,17 +53,21 @@ const InputSearch = () => {
           onChange={HandleSearchChange}
         />
       </div>
-
-      <select
-        onChange={handleSelectValues}
-        className="mx-4 p-2 rounded-xl bg-[#161616] w-[20px] md:w-auto"
-      >
-        {geners.map((genre) => (
-          <option key={genre.id} value={genre.genre} className="bg-[#161616]">
-            {genre.genre}
-          </option>
-        ))}
-      </select>
+      {pageQuery.length <= 6 ? (
+        <select
+          onChange={handleSelectValues}
+          className="mx-4 p-2 rounded-xl bg-[#161616] w-[20px] md:w-auto"
+          data-testid="select-input"
+        >
+          {geners.map((genre) => (
+            <option key={genre.id} value={genre.genre} className="bg-[#161616]">
+              {genre.genre}
+            </option>
+          ))}
+        </select>
+      ) : (
+        ""
+      )}
     </>
   );
 };

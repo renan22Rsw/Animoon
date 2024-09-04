@@ -10,13 +10,14 @@ import useResearchedMangas from "@/hooks/MangasHooks/useResearchedMangas";
 import Loading from "@/components/Loading/Loading";
 import PagesTitles from "@/components/Titles/PagesTitles";
 import Column from "@/components/Columns/Column";
-import TopColumnsMangas from "@/components/TopColumns/TopColumnsMangas";
 
 import { useSearchParams } from "next/navigation";
 import MainPagesGrid from "@/components/Grids/MainPagesGrid";
 import { useGenresMangas } from "@/hooks/MangasGenres/useMangasGenres";
 import useSearchGenreManga from "@/hooks/MangasGenres/useSearchMangaGenre";
 import Link from "next/link";
+import ApiNotWorking from "@/components/ApiNotWorking/ApiNotWorking";
+import TopColumnsMangas from "@/components/TopColumns/Manga/TopColumnsMangas";
 
 const MangaPage = () => {
   const query = useSearchParams();
@@ -61,7 +62,7 @@ const MangaPage = () => {
     genresMangasIsError ||
     seachGenreMangaIsError
   ) {
-    return <h1>the api is not working</h1>;
+    return <ApiNotWorking />;
   }
 
   const seassonal = trendingMangas?.slice(0, 6) || [];

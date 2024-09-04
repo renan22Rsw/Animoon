@@ -27,7 +27,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/components/TopAnimes&MangaColumn/TopColumn",
-    "src/components/TextArea/TextArea.jsx"
+    "src/components/TextArea/TextArea.jsx",
+    "src/components/Recomendations/mock.ts"
   ],
   "exclude": ["node_modules"]
 }

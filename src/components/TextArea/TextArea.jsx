@@ -11,6 +11,7 @@ export default function TextArea({ children }) {
         placeholder="Empty"
         cols={100}
         disabled
+        data-testid="text-area"
       />
     </div>
   );

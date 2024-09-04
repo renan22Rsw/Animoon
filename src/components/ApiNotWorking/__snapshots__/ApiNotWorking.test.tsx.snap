@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ApiNotWorking component should match a snapshot 1`] = `
+<div>
+  <div
+    class="my-20"
+  >
+    <h3
+      class=" text-center  font-bold md:text-xl"
+    >
+      Apologies, but it seems the API is currently unavailable. Please try again later.
+    </h3>
+    <div
+      class="flex justify-center my-8"
+    >
+      <img
+        alt="not-working-api-image"
+        data-nimg="1"
+        decoding="async"
+        height="150"
+        loading="lazy"
+        src="/_next/image?url=%2Fimg.jpg&w=384&q=75"
+        srcset="/_next/image?url=%2Fimg.jpg&w=256&q=75 1x, /_next/image?url=%2Fimg.jpg&w=384&q=75 2x"
+        style="color: transparent;"
+        width="150"
+      />
+    </div>
+  </div>
+</div>
+`;

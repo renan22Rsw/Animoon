@@ -1,0 +1,203 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SubPageHeader component should match a snapshot 1`] = `
+<div>
+  <div>
+    <div
+      class="bg-[#1C1C1C] pb-[30px] pt-[20px] h-[200px] text-[#9FADB3]  "
+    >
+      <div
+        class="max-w-[1200px] hidden m-8 md:flex md:items-center lg:mx-10 2xl:mx-auto"
+      >
+        <img
+          alt="Anime-Image"
+          class="rounded-md "
+          data-nimg="1"
+          data-testid="desktop-version"
+          decoding="async"
+          fetchpriority="high"
+          height="130"
+          src="/_next/image?url=http%3A%2F%2Fexample.com%2Fimage.jpg&w=384&q=75"
+          srcset="/_next/image?url=http%3A%2F%2Fexample.com%2Fimage.jpg&w=256&q=75 1x, /_next/image?url=http%3A%2F%2Fexample.com%2Fimage.jpg&w=384&q=75 2x"
+          style="color: transparent; height: 345px; width: 230px;"
+          width="130"
+        />
+        <div
+          class="my-4 mx-8  h-[300px]"
+        >
+          <h2
+            class="text-[#ADC0D2] text-3xl font-bold py-2"
+          >
+            Naruto
+          </h2>
+          <p
+            class="md:text-sm lg:text-sm"
+            data-testid="nativeName-desktop"
+          >
+            Naruto Uzumaki, 
+            Nine-Tails Jinchuuriki,  Number One Unpredictable
+          </p>
+          <div
+            class="relative top-[100px]"
+          >
+            <h4
+              data-testid="desktop-birthday"
+            >
+              Birthday: 
+              10/10
+            </h4>
+            <h4
+              data-testid="desktop-age"
+            >
+              Age: 
+              17
+            </h4>
+            <h4
+              data-testid="desktop-gender"
+            >
+              Gender: 
+              Male
+               
+            </h4>
+            <h4>
+              Years active: 
+              1996
+            </h4>
+            <h4
+              data-testid="desktop-hometown"
+            >
+              Hometown: 
+              Saitama Prefecture, Japan
+               
+            </h4>
+            <h4
+              data-testid="desktop-bloodType"
+            >
+              Blood Type: 
+              B
+            </h4>
+            <div
+              style="display: flex;"
+            >
+              <textarea
+                aria-label="empty textarea"
+                class=" w-full text-sm font-normal bg-transparent  leading-normal  resize-none"
+                cols="100"
+                data-testid="text-area"
+                disabled=""
+                placeholder="Empty"
+                rows="1"
+                style="height: 0px; overflow: hidden;"
+              >
+                Born in Konohagakure, a ninja village hidden in the leaves
+              </textarea>
+              <textarea
+                aria-hidden="true"
+                class=" w-full text-sm font-normal bg-transparent  leading-normal  resize-none"
+                readonly=""
+                style="visibility: hidden; position: absolute; overflow: hidden; height: 0px; top: 0px; left: 0px; transform: translateZ(0); padding-top: 0px; padding-bottom: 0px;"
+                tabindex="-1"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="text-center px-4 md:hidden  "
+      >
+        <h2
+          class="text-[#ADC0D2] text-2xl font-bold py-2"
+        >
+          Naruto
+        </h2>
+        <p
+          data-testid="nativeName-mobile"
+        >
+          Naruto Uzumaki, 
+          Nine-Tails Jinchuuriki,  Number One Unpredictable
+        </p>
+        <div
+          class="flex justify-center p-4  my-8"
+        >
+          <img
+            alt="Anime-Image"
+            class="rounded-md "
+            data-nimg="1"
+            data-testid="mobile-version"
+            decoding="async"
+            fetchpriority="high"
+            height="130"
+            src="/_next/image?url=http%3A%2F%2Fexample.com%2Fimage.jpg&w=384&q=75"
+            srcset="/_next/image?url=http%3A%2F%2Fexample.com%2Fimage.jpg&w=256&q=75 1x, /_next/image?url=http%3A%2F%2Fexample.com%2Fimage.jpg&w=384&q=75 2x"
+            style="color: transparent; height: 345px; width: 230px;"
+            width="130"
+          />
+        </div>
+        <div
+          class="text-start mx-4"
+        >
+          <h4
+            data-testid="mobile-birthday"
+          >
+            Birthday: 
+            10/10
+          </h4>
+          <h4
+            data-testid="mobile-age"
+          >
+            Age: 
+            17
+          </h4>
+          <h4
+            data-testid="mobile-gender"
+          >
+            Gender: 
+            Male
+             
+          </h4>
+          <h4>
+            Years active: 
+            1996
+          </h4>
+          <h4
+            data-testid="mobile-hometown"
+          >
+            Hometown: 
+            Saitama Prefecture, Japan
+             
+          </h4>
+          <h4
+            data-testid="mobile-bloodType"
+          >
+            Blood Type: 
+            B
+          </h4>
+          <div
+            style="display: flex;"
+          >
+            <textarea
+              aria-label="empty textarea"
+              class=" w-full text-sm font-normal bg-transparent  leading-normal  resize-none"
+              cols="100"
+              data-testid="text-area"
+              disabled=""
+              placeholder="Empty"
+              rows="1"
+              style="height: 0px; overflow: hidden;"
+            >
+              Born in Konohagakure, a ninja village hidden in the leaves
+            </textarea>
+            <textarea
+              aria-hidden="true"
+              class=" w-full text-sm font-normal bg-transparent  leading-normal  resize-none"
+              readonly=""
+              style="visibility: hidden; position: absolute; overflow: hidden; height: 0px; top: 0px; left: 0px; transform: translateZ(0); padding-top: 0px; padding-bottom: 0px;"
+              tabindex="-1"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

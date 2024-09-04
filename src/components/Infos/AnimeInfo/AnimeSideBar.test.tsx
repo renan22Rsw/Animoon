@@ -1,23 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import AnimeSideBarInfo from "./AnimeSideBarInfo";
-
+import { mock } from "../AnimeInfo/mock";
 describe("AnimeSideBarInfo component", () => {
   it("should render AnimeSideBarInfo with props", () => {
-    render(
-      <AnimeSideBarInfo
-        duration={24}
-        averageScore={85}
-        meanScore={88}
-        favourites={500}
-        format="TV"
-        genres={["comedy", "horror"]}
-        popularity={1000}
-        season="winter"
-        seasonYear={2024}
-        source="Light Novel"
-        status="Airing"
-      />
-    );
+    render(<AnimeSideBarInfo {...mock} />);
 
     expect(screen.getByText("TV")).toBeInTheDocument();
     expect(screen.getByText("24min")).toBeInTheDocument();
@@ -33,21 +19,7 @@ describe("AnimeSideBarInfo component", () => {
   });
 
   it("should render titles from AnimeSideBarInfo component", () => {
-    render(
-      <AnimeSideBarInfo
-        format="TV"
-        duration={0}
-        status="Unknown"
-        season=""
-        seasonYear={0}
-        averageScore={0}
-        meanScore={0}
-        popularity={0}
-        favourites={0}
-        genres={[]}
-        source="Unknown"
-      />
-    );
+    render(<AnimeSideBarInfo {...mock} />);
     expect(screen.getByText("Format")).toBeInTheDocument();
     expect(screen.getByText("Episode Duration")).toBeInTheDocument();
     expect(screen.getByText("Status")).toBeInTheDocument();

@@ -1,20 +1,10 @@
 import { render, screen } from "@testing-library/react";
 import MangaSideBarInfo from "./MangaSideBarInfo";
+import { mock } from "../MangaInfo/mock";
 
 describe("MangaSideBarInfo component", () => {
   it("should render MangaSideBarInfo with props", () => {
-    render(
-      <MangaSideBarInfo
-        averageScore={80}
-        meanScore={85}
-        favourites={1200}
-        format="Manga"
-        genres={["action, adventure"]}
-        popularity={1000}
-        source="Original"
-        status="Releasing"
-      />
-    );
+    render(<MangaSideBarInfo {...mock} />);
 
     expect(screen.getByText("Manga")).toBeInTheDocument();
     expect(screen.getByText("Releasing")).toBeInTheDocument();
@@ -27,18 +17,7 @@ describe("MangaSideBarInfo component", () => {
   });
 
   it("should render titles from MangaSideBarInfo", () => {
-    render(
-      <MangaSideBarInfo
-        averageScore={0}
-        meanScore={0}
-        favourites={0}
-        format="N/A"
-        genres={["N/A"]}
-        popularity={0}
-        source="N/A"
-        status="N/A"
-      />
-    );
+    render(<MangaSideBarInfo {...mock} />);
     expect(screen.getByText("Format")).toBeInTheDocument();
     expect(screen.getByText("Status")).toBeInTheDocument();
     expect(screen.getByText("Average Score")).toBeInTheDocument();

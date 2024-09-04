@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardStaff component should match a snapshot 1`] = `
+<div>
+  <div
+    class=" bg-[#1C1C1C] h-[80px]  w-[350px] m-4 rounded-md lg:w-[381px] 2xl:w-[380px]  2xl:h-[70px]"
+  >
+    <a
+      class="flex items-center text-xs"
+      href="/staffs/1"
+    >
+      <img
+        alt="Card-image"
+        class="h-20 w-[60px] rounded-sm 2xl:h-[70px] 2xl:w-[55px] "
+        data-nimg="1"
+        decoding="async"
+        fetchpriority="high"
+        height="60"
+        src="/_next/image?url=https%3A%2F%2Fexample.com%2Fstaff-image.jpg&w=128&q=75"
+        srcset="/_next/image?url=https%3A%2F%2Fexample.com%2Fstaff-image.jpg&w=64&q=75 1x, /_next/image?url=https%3A%2F%2Fexample.com%2Fstaff-image.jpg&w=128&q=75 2x"
+        style="color: transparent;"
+        width="50"
+      />
+      <span
+        class="grid p-2 gap-y-6  grid-rows-2 items-center"
+      >
+        <h4>
+          Masashi Kishimoto
+        </h4>
+        <p>
+          Original Creator
+        </p>
+      </span>
+    </a>
+  </div>
+</div>
+`;

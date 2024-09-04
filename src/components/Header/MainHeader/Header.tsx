@@ -1,6 +1,6 @@
+import TextArea from "@/components/TextArea/TextArea";
 import Image from "next/image";
 import React from "react";
-import TextArea from "../TextArea/TextArea";
 
 interface HeaderProps {
   title: string;
@@ -16,7 +16,7 @@ const Header = ({ title, description, coverImage }: HeaderProps) => {
           width={130}
           height={130}
           src={coverImage}
-          alt="Anime-Image"
+          alt="Header-Image"
           style={{ height: "345px", width: "230px" }}
           priority={true}
           className="rounded-md "

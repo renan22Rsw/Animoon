@@ -1,36 +1,34 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-
 import { FaStar } from "react-icons/fa";
 
-interface TopAnime {
-  id: number;
+interface topColumnsMangas {
   title: string;
+  id?: number;
   rank: number;
   images: string;
+  source: string;
+  meanScore: number;
   favorites: number;
   type: string;
-  episodes: number;
   status: string;
-  season: string;
-  year: number;
-  format: string;
+  chapters: null | number;
+  volumes: null | number;
 }
 
-const TopColumns = ({
+const TopColumnsMangas = ({
   id,
   title,
   rank,
   images,
-  type,
-  episodes,
-  favorites,
   status,
-  season,
-  year,
-  format,
-}: TopAnime) => {
+  type,
+  favorites,
+  chapters,
+  volumes,
+  meanScore,
+}: topColumnsMangas) => {
   return (
     <div className="w-[90%] mx-auto flex justify-center items-center my-4">
       <h2 className="px-8 font-bold text-xl">{rank}°</h2>
@@ -46,21 +44,27 @@ const TopColumns = ({
               height: "auto",
             }}
           />
-          <Link href={`/animes/${id}`}>
+          <Link href={`/mangas/${id}`}>
+            {" "}
             <h3 className="mx-4 pb-6 font-bold text-sm">{title}</h3>
           </Link>
         </div>
 
         <div className="w-full grid items-center justify-end">
           <ul className="grid grid-cols-3 text-center w-[450px] ">
-            <li className="px-4 font-bold ">{format}</li>
-            <li className="px-4 font-bold ">{type}</li>
-            <li className="px-4 font-bold capitalize">{season + ` ${year}`}</li>
+            <li className="px-4 font-bold ">{meanScore + "%"}</li>
+            <li className="px-4 font-bold  ">{type}</li>
+
+            <li className="px-4 font-bold capitalize">
+              {volumes ? volumes + " vol " : "not finished"}
+            </li>
             <li className="px-4 font-light text-xs flex items-center justify-center ">
               {favorites.toString()}{" "}
               <FaStar className="text-yellow-400 mx-1 text-xs" />{" "}
             </li>
-            <li className="px-4 font-light text-xs ">{episodes} ep</li>
+            <li className="px-4 font-light text-xs ">
+              {chapters ? chapters + " ch" : ""}
+            </li>
             <li className="px-4 font-light text-xs ">{status}</li>
           </ul>
         </div>
@@ -69,4 +73,4 @@ const TopColumns = ({
   );
 };
 
-export default TopColumns;
+export default TopColumnsMangas;

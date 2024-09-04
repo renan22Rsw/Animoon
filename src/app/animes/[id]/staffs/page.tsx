@@ -2,11 +2,11 @@ import { getAnimeById } from "@/api/AnimeInfoPage";
 import { Anime } from "@/types/anime";
 import React from "react";
 
-import Header from "@/components/Header/Header";
+import Header from "@/components/Header/MainHeader/Header";
 import AnimeSideBarInfo from "@/components/Infos/AnimeInfo/AnimeSideBarInfo";
-import AnimeContainer from "@/components/Container/AnimeContainer";
-import StaffContainer from "@/components/Container/StaffContainer";
-import CardStaff from "@/components/Cards/CardStaff";
+import AnimeContainer from "@/components/Container/Anime/AnimeContainer";
+import StaffContainer from "@/components/Container/Staffs/StaffContainer";
+import CardStaff from "@/components/Cards/CardStaffs/CardStaff";
 
 const SubAnimeStaffssPage = async ({ params }: ParamId) => {
   const data: Anime[] = await getAnimeById(params.id);

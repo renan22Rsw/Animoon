@@ -1,5 +1,5 @@
 import { fetchStaffsById } from "@/api/StaffInfoPage";
-import CharacterHeader from "@/components/Header/CharacterHeader";
+import CharacterHeader from "@/components/Header/SubHeader/SubPageHeader";
 import { Staffs } from "@/types/staff";
 import React from "react";
 

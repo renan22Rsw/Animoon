@@ -1,5 +1,5 @@
 import React from "react";
-import MainCard from "../Cards/MainCard";
+import MainCard from "../Cards/MainCard/MainCard";
 
 interface MainPagesGridProps {
   id: number;

@@ -1,5 +1,5 @@
 import { fetchCharactersById } from "@/api/CharacterInfoPage";
-import CharacterHeader from "@/components/Header/CharacterHeader";
+import SubPageHeader from "@/components/Header/SubHeader/SubPageHeader";
 import { Characters } from "@/types/character";
 import React from "react";
 
@@ -22,7 +22,7 @@ const CharacterInfo = async ({ params }: ParamId) => {
 
   return (
     <>
-      <CharacterHeader
+      <SubPageHeader
         name={character.name}
         nativeName={character.nativeName}
         alternativeName={character.alternativeName}

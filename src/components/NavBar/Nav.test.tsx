@@ -11,7 +11,7 @@ jest.mock("./nav", () => ({
 }));
 
 describe("NavBar component", () => {
-  it("should have a logo", () => {
+  it("should render the logo", () => {
     render(<NavBar />);
     const logoImage = screen.getByRole("img");
     expect(logoImage).toBeInTheDocument();
@@ -30,8 +30,30 @@ describe("NavBar component", () => {
     expect(screen.getByText("Characters")).toBeInTheDocument();
   });
 
+  it("should render links", () => {
+    render(<NavBar />);
+    expect(screen.getByText("Home")).toHaveAttribute("href", "/");
+    expect(screen.getByText("Animes")).toHaveAttribute(
+      "href",
+      "/search/animes"
+    );
+    expect(screen.getByText("Mangas")).toHaveAttribute(
+      "href",
+      "/search/mangas"
+    );
+    expect(screen.getByText("Characters")).toHaveAttribute(
+      "href",
+      "/search/characters"
+    );
+  });
+
   it("should render NavMoblie", () => {
     render(<NavBar />);
     expect(screen.getByTestId("moblie-nav")).toBeInTheDocument();
+  });
+
+  it("should match a snapshot", () => {
+    const { container } = render(<NavBar />);
+    expect(container).toMatchSnapshot();
   });
 });

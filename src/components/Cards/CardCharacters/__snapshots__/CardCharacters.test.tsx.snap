@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardCharacters component should match a snapshot 1`] = `
+<div>
+  <div
+    class="flex justify-between bg-[#1C1C1C] h-[80px] w-[350px] m-4 lg:w-[381px] 2xl:w-[375px]"
+  >
+    <a
+      class="flex items-center text-xs"
+      data-testid="character-link"
+      href="/characters/1"
+    >
+      <img
+        alt="Card-image-character"
+        class="h-25 w-[60px] rounded-sm 2xl:h-[80px] 2xl:w-[70px] "
+        data-nimg="1"
+        decoding="async"
+        fetchpriority="high"
+        height="60"
+        src="/_next/image?url=https%3A%2F%2Fexample.com%2Fcharacter-image.jpg&w=128&q=75"
+        srcset="/_next/image?url=https%3A%2F%2Fexample.com%2Fcharacter-image.jpg&w=64&q=75 1x, /_next/image?url=https%3A%2F%2Fexample.com%2Fcharacter-image.jpg&w=128&q=75 2x"
+        style="color: transparent;"
+        width="60"
+      />
+      <span
+        class="p-2 grid items-center w-[180px]  gap-y-6"
+      >
+        <h4>
+          Naruto
+        </h4>
+        <p>
+          Main
+        </p>
+      </span>
+    </a>
+    <a
+      class="flex items-center text-xs"
+      data-testid="voice-link"
+      href="/staffs/1"
+    >
+      <span
+        class=" p-2 grid  items-center w-[180px] gap-y-6 text-end"
+      >
+        <h4>
+          Junko Takeuch
+        </h4>
+        <p>
+          Japanease
+        </p>
+      </span>
+      <img
+        alt="Card-image-voices"
+        class="h-20 w-[60px] rounded-sm 2xl:h-[80px] 2xl:w-[70px]"
+        data-nimg="1"
+        decoding="async"
+        fetchpriority="high"
+        height="60"
+        src="/_next/image?url=https%3A%2F%2Fexample.com%2Fvoices-image.jpg&w=128&q=75"
+        srcset="/_next/image?url=https%3A%2F%2Fexample.com%2Fvoices-image.jpg&w=64&q=75 1x, /_next/image?url=https%3A%2F%2Fexample.com%2Fvoices-image.jpg&w=128&q=75 2x"
+        style="color: transparent;"
+        width="60"
+      />
+    </a>
+  </div>
+</div>
+`;

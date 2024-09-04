@@ -12,6 +12,7 @@ const Trailer = ({ trailerId }: { trailerId: string }) => {
         allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerPolicy="strict-origin-when-cross-origin"
         allowFullScreen
+        data-testid="iframe"
       ></iframe>
     </>
   );

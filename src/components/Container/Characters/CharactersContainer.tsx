@@ -1,18 +1,19 @@
 "use client";
 import React, { ReactNode } from "react";
-import SubTitles from "../Titles/SubTitles";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import SubTitles from "@/components/Titles/SubTitles";
 
 interface CharactersContainerProps {
   children: ReactNode;
-  id?: number;
+  id: number;
 }
 
 const CharactersContainer = ({ children, id }: CharactersContainerProps) => {
   const urlName = usePathname();
-  const queries = urlName.split("/");
-  const myPath = queries[1];
+  const queries = urlName?.split("/") || [];
+  const myPath = queries[1] || "default value";
 
   return (
     <>

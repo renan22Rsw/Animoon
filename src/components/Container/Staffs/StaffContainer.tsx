@@ -1,7 +1,7 @@
 "use client";
 
 import React, { ReactNode } from "react";
-import SubTitles from "../Titles/SubTitles";
+import SubTitles from "../../Titles/SubTitles";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
@@ -13,8 +13,8 @@ const StaffContainer = ({
   id: number;
 }) => {
   const urlName = usePathname();
-  const queries = urlName.split("/");
-  const myPath = queries[1];
+  const queries = urlName?.split("/") || [];
+  const myPath = queries[1] || [];
 
   return (
     <>

@@ -1,13 +1,13 @@
 import { getMangaById } from "@/api/MangaInfoPage";
-import CardCharacters from "@/components/Cards/CardCharacters";
-import CardStaff from "@/components/Cards/CardStaff";
-import AnimeContainer from "@/components/Container/AnimeContainer";
-import CharactersContainer from "@/components/Container/CharactersContainer";
-import RecommendationsContainer from "@/components/Container/RecommendationsContainer";
-import StaffContainer from "@/components/Container/StaffContainer";
-import Trailer from "@/components/Container/Trailer";
+import CardCharacters from "@/components/Cards/CardCharacters/CardCharacters";
+import CardStaff from "@/components/Cards/CardStaffs/CardStaff";
+import AnimeContainer from "@/components/Container/Anime/AnimeContainer";
+import CharactersContainer from "@/components/Container/Characters/CharactersContainer";
+import RecommendationsContainer from "@/components/Container/Recomendations/RecommendationsContainer";
+import StaffContainer from "@/components/Container/Staffs/StaffContainer";
+import Trailer from "@/components/Trailer/Trailer";
 import Description from "@/components/Description/Description";
-import Header from "@/components/Header/Header";
+import Header from "@/components/Header/MainHeader/Header";
 import MangaSideBarInfo from "@/components/Infos/MangaInfo/MangaSideBarInfo";
 import MangaRecomendations from "@/components/Recomendations/Mangas/MangaRecomendations";
 

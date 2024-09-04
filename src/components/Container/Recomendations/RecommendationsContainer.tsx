@@ -1,5 +1,5 @@
+import SubTitles from "@/components/Titles/SubTitles";
 import React, { ReactNode } from "react";
-import SubTitles from "../Titles/SubTitles";
 
 const RecommendationsContainer = ({ children }: { children: ReactNode }) => {
   return (

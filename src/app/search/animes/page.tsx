@@ -8,7 +8,7 @@ import useTopAnimes from "@/hooks/AnimesHooks/useTopAnimes";
 import Loading from "@/components/Loading/Loading";
 import PagesTitles from "@/components/Titles/PagesTitles";
 import Column from "@/components/Columns/Column";
-import TopColumns from "@/components/TopColumns/TopColumns";
+import TopColumns from "@/components/TopColumns/Anime/TopColumns";
 import useNextSeason from "@/hooks/AnimesHooks/useUpComingAnimes";
 import { useSearchParams } from "next/navigation";
 import { useResearchedAnimes } from "@/hooks/AnimesHooks/useResearchedAnimes";

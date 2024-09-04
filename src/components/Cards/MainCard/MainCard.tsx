@@ -11,11 +11,12 @@ interface MainCardProps {
 
 const MainCard = ({ title, images, id }: MainCardProps) => {
   const params = usePathname();
-  const urlName: string[] = params.split("/");
+  const urlName: string[] = params?.split("/") || [];
+  const url = urlName[2] || "default section";
 
   return (
     <div className=" py-2 px-1 lg:mx-4">
-      <Link href={`/${urlName[2]}/${id}`}>
+      <Link href={`/${url}/${id}`}>
         <Image
           className=" rounded-md cursor-pointer lg:hover:scale-110 h-[190px] lg:duration-700 lg:ease-in-out md:h-[265px]"
           src={images}

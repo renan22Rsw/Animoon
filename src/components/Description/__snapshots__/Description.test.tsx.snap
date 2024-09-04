@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Description component should match a snapshot 1`] = `
+<div>
+  <div
+    class="md:hidden  my-8 "
+  >
+    <div
+      class="m-4 px-4 text-[#EDEDED]"
+    >
+      Description
+    </div>
+    <div
+      class="bg-[#1C1C1C] w-[90%] mx-auto p-8 "
+    >
+      <p
+        class="text-white text-sm"
+      >
+        anime or manga description
+      </p>
+    </div>
+  </div>
+</div>
+`;

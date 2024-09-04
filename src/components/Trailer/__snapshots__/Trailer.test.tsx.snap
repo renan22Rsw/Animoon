@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Trailer component should match a snapshot 1`] = `
+<div>
+  <div
+    class="m-4 px-4 text-[#EDEDED]"
+  >
+    Trailer
+  </div>
+  <iframe
+    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen=""
+    class=" w-[420px] h-[300px] p-10 md:w-[500px] md:h-[300px] md:p-4 "
+    data-testid="iframe"
+    referrerpolicy="strict-origin-when-cross-origin"
+    src="https://www.youtube.com/embed/abc?enablejsapi=1&wmode=opaque&autoplay=0"
+    title="YouTube video player"
+  />
+</div>
+`;

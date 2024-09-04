@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AnimeTopColumns should match a snapshot 1`] = `
+<div>
+  <div
+    class="w-[90%] mx-auto flex justify-center items-center my-4"
+  >
+    <h2
+      class="px-8 font-bold text-xl"
+    >
+      1
+      °
+    </h2>
+    <div
+      class="bg-[#1C1C1C] w-full px-4 my-4 rounded-md flex"
+    >
+      <div
+        class="h-[80px] w-[500px] flex items-center "
+      >
+        <img
+          alt="Image-Column"
+          data-nimg="1"
+          decoding="async"
+          height="35"
+          loading="lazy"
+          src="/_next/image?url=http%3A%2F%2Fexample.com%2Fanime-image.jpg&w=96&q=75"
+          srcset="/_next/image?url=http%3A%2F%2Fexample.com%2Fanime-image.jpg&w=48&q=75 1x, /_next/image?url=http%3A%2F%2Fexample.com%2Fanime-image.jpg&w=96&q=75 2x"
+          style="color: transparent; width: auto; height: auto;"
+          width="35"
+        />
+        <a
+          href="/animes/154587"
+        >
+          <h3
+            class="mx-4 pb-6 font-bold text-sm"
+          >
+            Sousou no Frieren
+          </h3>
+        </a>
+      </div>
+      <div
+        class="w-full grid items-center justify-end"
+      >
+        <ul
+          class="grid grid-cols-3 text-center w-[450px] "
+        >
+          <li
+            class="px-4 font-bold "
+          >
+            Anime
+          </li>
+          <li
+            class="px-4 font-bold "
+          >
+            TV
+          </li>
+          <li
+            class="px-4 font-bold capitalize"
+          >
+            FALL 2023
+          </li>
+          <li
+            class="px-4 font-light text-xs flex items-center justify-center "
+          >
+            27371
+             
+            <svg
+              class="text-yellow-400 mx-1 text-xs"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 576 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+              />
+            </svg>
+             
+          </li>
+          <li
+            class="px-4 font-light text-xs "
+          >
+            28 ep
+          </li>
+          <li
+            class="px-4 font-light text-xs "
+          >
+            FINISHED
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
