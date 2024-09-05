@@ -45,7 +45,7 @@ export const getAnimeById = async (id: number): Promise<Anime[]> => {
                     medium
                   }
                 }
-                voiceActors {
+                voiceActors(language: JAPANESE) {
                   id
                   name {
                     userPreferred
