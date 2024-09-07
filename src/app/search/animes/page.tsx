@@ -2,23 +2,23 @@
 
 import React from "react";
 
-import useSeasonalAnimes from "@/hooks/AnimesHooks/useSeasonalAnimes";
-import useTopAnimes from "@/hooks/AnimesHooks/useTopAnimes";
+import useSeasonalAnimes from "@/hooks/AnimesHooks/SeasonalAnimes/useSeasonalAnimes";
+import useTopAnimes from "@/hooks/AnimesHooks/TopAnimes/useTopAnimes";
 
 import Loading from "@/components/Loading/Loading";
 import PagesTitles from "@/components/Titles/PagesTitles";
 import Column from "@/components/Columns/Column";
 import TopColumns from "@/components/TopColumns/Anime/TopColumns";
-import useNextSeason from "@/hooks/AnimesHooks/useUpComingAnimes";
+import useNextSeason from "@/hooks/AnimesHooks/UpComingAnimes/useUpComingAnimes";
 import { useSearchParams } from "next/navigation";
-import { useResearchedAnimes } from "@/hooks/AnimesHooks/useResearchedAnimes";
+import { useResearchedAnimes } from "@/hooks/AnimesHooks/ResearchedAnimes/useResearchedAnimes";
 import MainPagesGrid from "@/components/Grids/MainPagesGrid";
 import { useGenresAnimes } from "@/hooks/AnimesGenres/useAnimesGenres";
 import useSearchGenre from "@/hooks/AnimesGenres/useSearchGenre";
 import Link from "next/link";
 import ApiNotWorking from "@/components/ApiNotWorking/ApiNotWorking";
 
-const AnimePage = () => {
+export const AnimePage = () => {
   const query = useSearchParams();
   const parameterValue = query.get("search");
   const genreParameter = query.get("genres");

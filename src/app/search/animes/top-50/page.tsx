@@ -3,7 +3,7 @@
 import MainPagesGrid from "@/components/Grids/MainPagesGrid";
 import Loading from "@/components/Loading/Loading";
 import PagesTitles from "@/components/Titles/PagesTitles";
-import useTopAnimes from "@/hooks/AnimesHooks/useTopAnimes";
+import useTopAnimes from "@/hooks/AnimesHooks/TopAnimes/useTopAnimes";
 import React from "react";
 
 const Top50Animes = () => {
