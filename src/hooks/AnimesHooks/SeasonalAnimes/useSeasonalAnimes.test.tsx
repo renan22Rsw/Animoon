@@ -50,7 +50,7 @@ describe("useSeasonalAnimes hook", () => {
     await waitFor(() => expect(result.current.seasonalIsloading).toBe(true));
   });
 
-  it("should return an erro if api response is not working", async () => {
+  it("should return an erro message if api response is not working", async () => {
     (fetchSeasonsAnimes as jest.Mock).mockRejectedValue(
       new Error("the api is not working...")
     );
