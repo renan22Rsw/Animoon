@@ -3,7 +3,7 @@
 import MainPagesGrid from "@/components/Grids/MainPagesGrid";
 import Loading from "@/components/Loading/Loading";
 import PagesTitles from "@/components/Titles/PagesTitles";
-import useSeasonalAnimes from "@/hooks/AnimesHooks/useSeasonalAnimes";
+import useSeasonalAnimes from "@/hooks/AnimesHooks/SeasonalAnimes/useSeasonalAnimes";
 import React from "react";
 
 const TrendingAnimes = () => {

@@ -9,12 +9,12 @@ import Loading from "@/components/Loading/Loading";
 import PagesTitles from "@/components/Titles/PagesTitles";
 import Column from "@/components/Columns/Column";
 import TopColumns from "@/components/TopColumns/Anime/TopColumns";
-import useNextSeason from "@/hooks/AnimesHooks/UpComingAnimes/useUpComingAnimes";
+import useNextSeason from "@/hooks/AnimesHooks/NextSeasonAnimes/useNextSeasonAnimes";
 import { useSearchParams } from "next/navigation";
 import { useResearchedAnimes } from "@/hooks/AnimesHooks/ResearchedAnimes/useResearchedAnimes";
 import MainPagesGrid from "@/components/Grids/MainPagesGrid";
-import { useGenresAnimes } from "@/hooks/AnimesGenres/useAnimesGenres";
-import useSearchGenre from "@/hooks/AnimesGenres/useSearchGenre";
+import { useGenresAnimes } from "@/hooks/AnimesGenres/Genres/useAnimesGenres";
+import useSearchGenre from "@/hooks/AnimesGenres/GenresAndSearch/useSearchGenre";
 import Link from "next/link";
 import ApiNotWorking from "@/components/ApiNotWorking/ApiNotWorking";
 
@@ -80,7 +80,7 @@ export const AnimePage = () => {
           </Link>
           <MainPagesGrid datas={seasonal} />
 
-          <Link href={"animes/upcoming"}>
+          <Link href={"animes/next_season"}>
             <PagesTitles>UpComing Next Season</PagesTitles>
           </Link>
           <MainPagesGrid datas={nextSeasonal} />

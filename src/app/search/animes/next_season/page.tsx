@@ -3,7 +3,7 @@
 import MainPagesGrid from "@/components/Grids/MainPagesGrid";
 import Loading from "@/components/Loading/Loading";
 import PagesTitles from "@/components/Titles/PagesTitles";
-import useNextSeason from "@/hooks/AnimesHooks/UpComingAnimes/useUpComingAnimes";
+import useNextSeason from "@/hooks/AnimesHooks/NextSeasonAnimes/useNextSeasonAnimes";
 import React from "react";
 
 const UpComingAnimes = () => {

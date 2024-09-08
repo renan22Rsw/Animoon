@@ -7,7 +7,7 @@ const useNextSeason = () => {
     error: nextSeasonError,
     isLoading: nextSeasonLoading,
   } = useQuery({
-    queryKey: ["seasonsUpComing"],
+    queryKey: ["nextSeason"],
     queryFn: fetchNextSeason,
   });
 

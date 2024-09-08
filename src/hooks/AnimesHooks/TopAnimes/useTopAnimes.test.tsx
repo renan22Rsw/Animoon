@@ -47,7 +47,7 @@ describe("useTopAnimes hook", () => {
     await waitFor(() => expect(result.current.topAnimesIsloading).toBe(true));
   });
 
-  it("should return an erro if top animes api is not working", async () => {
+  it("should return an erro message if top animes api is not working", async () => {
     (fetchTopAnimes as jest.Mock).mockRejectedValue(
       new Error("the api is not working...")
     );

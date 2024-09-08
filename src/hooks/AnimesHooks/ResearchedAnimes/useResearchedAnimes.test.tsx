@@ -22,6 +22,11 @@ const wrapper = ({ children }: { children: ReactNode }) => (
 );
 
 describe("useResearched hook", () => {
+  afterEach(() => {
+    queryClient.clear();
+    jest.clearAllMocks();
+  });
+
   it("should return datas from api request", async () => {
     (fetchResearchedAnimes as jest.Mock).mockResolvedValue(mock);
 
@@ -38,7 +43,7 @@ describe("useResearched hook", () => {
     });
   });
 
-  it("should render loading component if data is loading", async () => {
+  it("should load if data from api is loading", async () => {
     (fetchResearchedAnimes as jest.Mock).mockResolvedValue(mock);
     const { result } = renderHook(() => useResearchedAnimes("One piece"), {
       wrapper,
@@ -48,8 +53,10 @@ describe("useResearched hook", () => {
     );
   });
 
-  it("should return an error if data is error", async () => {
-    (fetchResearchedAnimes as jest.Mock).mockRejectedValue(new Error());
+  it("should return an error message if api is error", async () => {
+    (fetchResearchedAnimes as jest.Mock).mockRejectedValue(
+      new Error("the api is not working")
+    );
 
     const { result } = renderHook(() => useResearchedAnimes("error"), {
       wrapper,

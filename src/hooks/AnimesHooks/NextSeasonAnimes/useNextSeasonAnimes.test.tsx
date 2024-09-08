@@ -3,7 +3,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactNode } from "react";
 import { mock } from "@/hooks/AnimesHooks/mock";
 import { renderHook, waitFor } from "@testing-library/react";
-import useNextSeason from "./useUpComingAnimes";
+import useNextSeason from "./useNextSeasonAnimes";
 
 jest.mock("../../../api/AnimeMainPage", () => ({
   fetchNextSeason: jest.fn(),
@@ -21,13 +21,13 @@ const wrapper = ({ children }: { children: ReactNode }) => (
   <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
 );
 
-describe("useUpComingAnimes hook", () => {
+describe("useNextSeasonAnimes hook", () => {
   afterEach(() => {
     queryClient.clear();
     jest.clearAllMocks();
   });
 
-  it("should return up coming animes data if api is working", async () => {
+  it("should return next season animes data if api is working", async () => {
     (fetchNextSeason as jest.Mock).mockResolvedValue(mock);
 
     const { result } = renderHook(() => useNextSeason(), { wrapper });
@@ -48,7 +48,7 @@ describe("useUpComingAnimes hook", () => {
     await waitFor(() => expect(result.current.nextSeasonLoading).toBe(true));
   });
 
-  it("should return an erro if next season animes api is not working", async () => {
+  it("should return an erro message if next season animes api is not working", async () => {
     (fetchNextSeason as jest.Mock).mockRejectedValue(
       new Error("the api is not working...")
     );
