@@ -3,7 +3,7 @@
 import MainPagesGrid from "@/components/Grids/MainPagesGrid";
 import Loading from "@/components/Loading/Loading";
 import PagesTitles from "@/components/Titles/PagesTitles";
-import useSeasonalMangas from "@/hooks/MangasHooks/useSeasonalMangas";
+import useSeasonalMangas from "@/hooks/MangasHooks/SeasonalMangas/useSeasonalMangas";
 import React from "react";
 
 const TrendingMangas = () => {

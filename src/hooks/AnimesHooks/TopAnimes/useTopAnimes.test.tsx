@@ -49,7 +49,7 @@ describe("useTopAnimes hook", () => {
 
   it("should return an erro message if top animes api is not working", async () => {
     (fetchTopAnimes as jest.Mock).mockRejectedValue(
-      new Error("the api is not working...")
+      new Error("api is not working...")
     );
     const { result } = renderHook(() => useTopAnimes(), { wrapper });
 
@@ -59,7 +59,7 @@ describe("useTopAnimes hook", () => {
       expect(result.current.topAnimesIsloading).toBe(false);
       expect(result.current.topAnimes).toBeUndefined();
       expect(result.current.topAnimesError).toEqual(
-        new Error("the api is not working...")
+        new Error("api is not working...")
       );
     });
   });

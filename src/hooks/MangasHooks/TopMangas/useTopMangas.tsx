@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 const useTopMangas = () => {
   const {
     data: topMangas,
-    error: topMangasError,
+    error: topMangasIsError,
     isLoading: topMangasIsLoading,
   } = useQuery({
     queryKey: ["topMangas"],
@@ -13,7 +13,7 @@ const useTopMangas = () => {
 
   return {
     topMangas,
-    topMangasError,
+    topMangasIsError,
     topMangasIsLoading,
   };
 };

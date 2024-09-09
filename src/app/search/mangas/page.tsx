@@ -2,34 +2,34 @@
 
 import React from "react";
 
-import useSeasonalMangas from "@/hooks/MangasHooks/useSeasonalMangas";
-import useUpComingMangas from "@/hooks/MangasHooks/useUpComingMangas";
-import useTopMangas from "@/hooks/MangasHooks/useTopMangas";
-import useResearchedMangas from "@/hooks/MangasHooks/useResearchedMangas";
+import useSeasonalMangas from "@/hooks/MangasHooks/SeasonalMangas/useSeasonalMangas";
+import useTopMangas from "@/hooks/MangasHooks/TopMangas/useTopMangas";
+import useResearchedMangas from "@/hooks/MangasHooks/ResearchMangas/useResearchedMangas";
+import { useGenresMangas } from "@/hooks/MangasGenres/useMangasGenres";
+import useNextSeasonMangas from "@/hooks/MangasHooks/NextSeason/useNextSeasonMangas";
+import useSearchGenreManga from "@/hooks/MangasGenres/useSearchMangaGenre";
 
 import Loading from "@/components/Loading/Loading";
 import PagesTitles from "@/components/Titles/PagesTitles";
 import Column from "@/components/Columns/Column";
-
-import { useSearchParams } from "next/navigation";
 import MainPagesGrid from "@/components/Grids/MainPagesGrid";
-import { useGenresMangas } from "@/hooks/MangasGenres/useMangasGenres";
-import useSearchGenreManga from "@/hooks/MangasGenres/useSearchMangaGenre";
-import Link from "next/link";
 import ApiNotWorking from "@/components/ApiNotWorking/ApiNotWorking";
 import TopColumnsMangas from "@/components/TopColumns/Manga/TopColumnsMangas";
+
+import { useSearchParams } from "next/navigation";
+import Link from "next/link";
 
 const MangaPage = () => {
   const query = useSearchParams();
   const parameterValue = query.get("search");
   const genreParameter = query.get("genres");
 
-  const { trendingMangas, trendingMangasError, trendingMangasIsLoading } =
+  const { seasonalMangas, seasonalMangasIsError, seasonalMangasIsLoading } =
     useSeasonalMangas();
-  const { allTimePopular, allTimePopularError, allTimePopularIsLoading } =
-    useUpComingMangas();
+  const { nextSeasonManga, nextSeasonMangaIsError, nextSeasonMangaIsLoading } =
+    useNextSeasonMangas();
 
-  const { topMangas, topMangasError, topMangasIsLoading } = useTopMangas();
+  const { topMangas, topMangasIsError, topMangasIsLoading } = useTopMangas();
 
   const {
     researchedMangas,
@@ -44,8 +44,8 @@ const MangaPage = () => {
     useSearchGenreManga(parameterValue, genreParameter);
 
   if (
-    trendingMangasIsLoading ||
-    allTimePopularIsLoading ||
+    seachGenreMangaIsLoading ||
+    nextSeasonMangaIsLoading ||
     topMangasIsLoading ||
     researchedMangasIsLoading ||
     genresMangasIsLoading ||
@@ -55,9 +55,9 @@ const MangaPage = () => {
   }
 
   if (
-    trendingMangasError ||
-    allTimePopularError ||
-    topMangasError ||
+    seachGenreMangaIsError ||
+    nextSeasonMangaIsError ||
+    topMangasIsError ||
     researchedMangasIsError ||
     genresMangasIsError ||
     seachGenreMangaIsError
@@ -65,8 +65,8 @@ const MangaPage = () => {
     return <ApiNotWorking />;
   }
 
-  const seassonal = trendingMangas?.slice(0, 6) || [];
-  const popularMangas = allTimePopular?.slice(0, 6) || [];
+  const seassonal = seasonalMangas?.slice(0, 6) || [];
+  const nextSeason = nextSeasonManga?.slice(0, 6) || [];
   const top10Mangas = topMangas?.slice(0, 10) || [];
   const researched = researchedMangas || [];
   const genre = genresMangas || [];
@@ -80,10 +80,10 @@ const MangaPage = () => {
           </Link>
           <MainPagesGrid datas={seassonal} />
 
-          <Link href={"mangas/upcoming"}>
+          <Link href={"mangas/next_season"}>
             <PagesTitles>UpComing Next Season</PagesTitles>
           </Link>
-          <MainPagesGrid datas={popularMangas} />
+          <MainPagesGrid datas={nextSeason} />
 
           <div className="lg:hidden">
             <Link href={"mangas/top-50"}>
