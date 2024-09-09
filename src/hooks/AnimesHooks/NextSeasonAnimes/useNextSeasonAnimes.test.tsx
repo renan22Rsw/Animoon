@@ -50,7 +50,7 @@ describe("useNextSeasonAnimes hook", () => {
 
   it("should return an erro message if next season animes api is not working", async () => {
     (fetchNextSeason as jest.Mock).mockRejectedValue(
-      new Error("the api is not working...")
+      new Error("api is not working...")
     );
     const { result } = renderHook(() => useNextSeason(), { wrapper });
 
@@ -60,7 +60,7 @@ describe("useNextSeasonAnimes hook", () => {
       expect(result.current.nextSeasonLoading).toBe(false);
       expect(result.current.nextSeason).toBeUndefined();
       expect(result.current.nextSeasonError).toEqual(
-        new Error("the api is not working...")
+        new Error("api is not working...")
       );
     });
   });

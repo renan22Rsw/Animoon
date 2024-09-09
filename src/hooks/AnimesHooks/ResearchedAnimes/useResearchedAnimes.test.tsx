@@ -21,7 +21,7 @@ const wrapper = ({ children }: { children: ReactNode }) => (
   <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
 );
 
-describe("useResearched hook", () => {
+describe("useResearchedAnimes hook", () => {
   afterEach(() => {
     queryClient.clear();
     jest.clearAllMocks();

@@ -119,7 +119,7 @@ const AnimeInfo = async ({ params }: ParamId) => {
 
         {anime.recommendations ? (
           <RecommendationsContainer>
-            {anime.recommendations.slice(0, 5).map((recommended) => (
+            {anime.recommendations.slice(0, 7).map((recommended) => (
               <AnimeRecomendations
                 key={recommended.id}
                 id={recommended.id}

@@ -43,7 +43,7 @@ interface topMangasResult {
   };
 }
 
-export const fetchTrendingMangas = async (): Promise<Mangas[]> => {
+export const fetchSeasonsMangas = async (): Promise<Mangas[]> => {
   const { data } = await client.query<MangaData>({
     query: gql`
       query {
@@ -65,7 +65,7 @@ export const fetchTrendingMangas = async (): Promise<Mangas[]> => {
   return data.Page.media;
 };
 
-export const fetchAllTimePopular = async (): Promise<Mangas[]> => {
+export const fetchNextSeasonMangas = async (): Promise<Mangas[]> => {
   const { data } = await client.query<MangaData>({
     query: gql`
       query {

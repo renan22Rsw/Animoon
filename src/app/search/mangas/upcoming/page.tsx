@@ -3,27 +3,27 @@
 import MainPagesGrid from "@/components/Grids/MainPagesGrid";
 import Loading from "@/components/Loading/Loading";
 import PagesTitles from "@/components/Titles/PagesTitles";
-import useUpComingMangas from "@/hooks/MangasHooks/useUpComingMangas";
 import React from "react";
+import useNextSeasonMangas from "@/hooks/MangasHooks/NextSeason/useNextSeasonMangas";
 
 const UpComingMangas = () => {
-  const { allTimePopular, allTimePopularError, allTimePopularIsLoading } =
-    useUpComingMangas();
+  const { nextSeasonManga, nextSeasonMangaIsError, nextSeasonMangaIsLoading } =
+    useNextSeasonMangas();
 
-  if (allTimePopularIsLoading) {
+  if (nextSeasonMangaIsLoading) {
     return <Loading />;
   }
 
-  if (allTimePopularError) {
+  if (nextSeasonMangaIsError) {
     return <div>api is not working...</div>;
   }
 
-  const upcoming = allTimePopular || [];
+  const nextSeason = nextSeasonManga || [];
 
   return (
     <>
       <PagesTitles>Up Coming Next Season</PagesTitles>
-      <MainPagesGrid datas={upcoming} />
+      <MainPagesGrid datas={nextSeason} />
     </>
   );
 };
