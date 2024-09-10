@@ -7,18 +7,18 @@ import useSeasonalMangas from "@/hooks/MangasHooks/SeasonalMangas/useSeasonalMan
 import React from "react";
 
 const TrendingMangas = () => {
-  const { trendingMangas, trendingMangasError, trendingMangasIsLoading } =
+  const { seasonalMangas, seasonalMangasIsError, seasonalMangasIsLoading } =
     useSeasonalMangas();
 
-  if (trendingMangasIsLoading) {
+  if (seasonalMangasIsLoading) {
     return <Loading />;
   }
 
-  if (trendingMangasError) {
+  if (seasonalMangasIsError) {
     return <div>Api is not working...</div>;
   }
 
-  const trending = trendingMangas || [];
+  const trending = seasonalMangas || [];
 
   return (
     <>

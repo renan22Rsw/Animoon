@@ -26,7 +26,7 @@ describe("useAnimesGenres hook", () => {
     jest.clearAllMocks();
   });
 
-  it("should return animes genres data if api is working", async () => {
+  it("should return datas from api response", async () => {
     (fetchGenresAnimes as jest.Mock).mockResolvedValue(mock);
 
     const { result } = renderHook(() => useGenresAnimes("Horror"), { wrapper });
@@ -40,7 +40,7 @@ describe("useAnimesGenres hook", () => {
     });
   });
 
-  it("should load if anime genres api is loading", async () => {
+  it("should load if datas from api response is loading", async () => {
     (fetchGenresAnimes as jest.Mock).mockResolvedValue(mock);
 
     const { result } = renderHook(() => useGenresAnimes("Action"), { wrapper });
@@ -50,7 +50,7 @@ describe("useAnimesGenres hook", () => {
     });
   });
 
-  it("should return an erro message if api is not working", async () => {
+  it("should return an erro message if api response is not working", async () => {
     (fetchGenresAnimes as jest.Mock).mockRejectedValue(
       new Error("the api is not working")
     );

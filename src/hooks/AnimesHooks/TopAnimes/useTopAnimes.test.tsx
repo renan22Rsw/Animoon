@@ -27,7 +27,7 @@ describe("useTopAnimes hook", () => {
     jest.clearAllMocks();
   });
 
-  it("should return top animes data if api is working", async () => {
+  it("should return datas from api response", async () => {
     (fetchTopAnimes as jest.Mock).mockResolvedValue(mock);
 
     const { result } = renderHook(() => useTopAnimes(), { wrapper });
@@ -41,13 +41,13 @@ describe("useTopAnimes hook", () => {
     });
   });
 
-  it("should load if top animes api is loading", async () => {
+  it("should load if datas from api response is loading", async () => {
     const { result } = renderHook(() => useTopAnimes(), { wrapper });
 
     await waitFor(() => expect(result.current.topAnimesIsloading).toBe(true));
   });
 
-  it("should return an erro message if top animes api is not working", async () => {
+  it("should return an erro message if api response is not working", async () => {
     (fetchTopAnimes as jest.Mock).mockRejectedValue(
       new Error("api is not working...")
     );

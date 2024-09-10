@@ -47,9 +47,9 @@ const MangaInfo = async ({ params }: ParamId) => {
     trailer: manga.trailer?.id,
 
     recommendations: manga.recommendations.nodes.map((recommended) => ({
-      id: recommended.mediaRecommendation.id,
-      title: recommended.mediaRecommendation.title.romaji,
-      image: recommended.mediaRecommendation.coverImage.large,
+      id: recommended.mediaRecommendation?.id,
+      title: recommended.mediaRecommendation?.title.romaji,
+      image: recommended.mediaRecommendation?.coverImage.large,
     })),
   }));
 
@@ -60,7 +60,7 @@ const MangaInfo = async ({ params }: ParamId) => {
       <Header
         title={manga.title}
         coverImage={manga.image}
-        description={manga.description.replace(/<[^>]+>/g, "")}
+        description={manga.description?.replace(/<[^>]+>/g, "")}
       />
 
       <MangaSideBarInfo
@@ -75,7 +75,7 @@ const MangaInfo = async ({ params }: ParamId) => {
       />
 
       <AnimeContainer>
-        <Description description={manga.description.replace(/<[^>]+>/g, "")} />
+        <Description description={manga.description?.replace(/<[^>]+>/g, "")} />
         <CharactersContainer id={params.id}>
           {manga.characters.slice(0, 6).map((character) => (
             <CardCharacters

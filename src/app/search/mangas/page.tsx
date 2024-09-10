@@ -5,9 +5,9 @@ import React from "react";
 import useSeasonalMangas from "@/hooks/MangasHooks/SeasonalMangas/useSeasonalMangas";
 import useTopMangas from "@/hooks/MangasHooks/TopMangas/useTopMangas";
 import useResearchedMangas from "@/hooks/MangasHooks/ResearchMangas/useResearchedMangas";
-import { useGenresMangas } from "@/hooks/MangasGenres/useMangasGenres";
-import useNextSeasonMangas from "@/hooks/MangasHooks/NextSeason/useNextSeasonMangas";
-import useSearchGenreManga from "@/hooks/MangasGenres/useSearchMangaGenre";
+import { useGenresMangas } from "@/hooks/MangasGenres/Genre/useMangasGenres";
+import usePopularMangas from "@/hooks/MangasHooks/PopularMangas/usePopularMangas";
+import useSearchGenreManga from "@/hooks/MangasGenres/GenresAndSearch/useSearchMangaGenre";
 
 import Loading from "@/components/Loading/Loading";
 import PagesTitles from "@/components/Titles/PagesTitles";
@@ -26,8 +26,8 @@ const MangaPage = () => {
 
   const { seasonalMangas, seasonalMangasIsError, seasonalMangasIsLoading } =
     useSeasonalMangas();
-  const { nextSeasonManga, nextSeasonMangaIsError, nextSeasonMangaIsLoading } =
-    useNextSeasonMangas();
+  const { popularMangas, popularMangasIsError, popularMangasIsLoading } =
+    usePopularMangas();
 
   const { topMangas, topMangasIsError, topMangasIsLoading } = useTopMangas();
 
@@ -44,8 +44,9 @@ const MangaPage = () => {
     useSearchGenreManga(parameterValue, genreParameter);
 
   if (
+    seasonalMangasIsLoading ||
     seachGenreMangaIsLoading ||
-    nextSeasonMangaIsLoading ||
+    popularMangasIsLoading ||
     topMangasIsLoading ||
     researchedMangasIsLoading ||
     genresMangasIsLoading ||
@@ -55,8 +56,9 @@ const MangaPage = () => {
   }
 
   if (
+    seasonalMangasIsError ||
     seachGenreMangaIsError ||
-    nextSeasonMangaIsError ||
+    popularMangasIsError ||
     topMangasIsError ||
     researchedMangasIsError ||
     genresMangasIsError ||
@@ -66,7 +68,7 @@ const MangaPage = () => {
   }
 
   const seassonal = seasonalMangas?.slice(0, 6) || [];
-  const nextSeason = nextSeasonManga?.slice(0, 6) || [];
+  const popular = popularMangas?.slice(0, 6) || [];
   const top10Mangas = topMangas?.slice(0, 10) || [];
   const researched = researchedMangas || [];
   const genre = genresMangas || [];
@@ -80,10 +82,10 @@ const MangaPage = () => {
           </Link>
           <MainPagesGrid datas={seassonal} />
 
-          <Link href={"mangas/next_season"}>
-            <PagesTitles>UpComing Next Season</PagesTitles>
+          <Link href={"mangas/popular"}>
+            <PagesTitles>All Time Popular</PagesTitles>
           </Link>
-          <MainPagesGrid datas={nextSeason} />
+          <MainPagesGrid datas={popular} />
 
           <div className="lg:hidden">
             <Link href={"mangas/top-50"}>

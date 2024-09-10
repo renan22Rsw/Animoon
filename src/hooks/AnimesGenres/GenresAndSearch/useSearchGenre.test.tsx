@@ -27,7 +27,7 @@ describe("useSearchGenre hook", () => {
     jest.clearAllMocks();
   });
 
-  it("should return datas from api if api is working", async () => {
+  it("should return datas from api response", async () => {
     (fetchSearchAnimeByGenre as jest.Mock).mockResolvedValue(mock);
 
     const { result } = renderHook(
@@ -43,7 +43,7 @@ describe("useSearchGenre hook", () => {
     });
   });
 
-  it("should load if data from api is loading", async () => {
+  it("should load if datas from api response is loading", async () => {
     (fetchSearchAnimeByGenre as jest.Mock).mockResolvedValue(mock);
 
     const { result } = renderHook(
@@ -55,7 +55,7 @@ describe("useSearchGenre hook", () => {
     );
   });
 
-  it("should return an error message if api is not working", async () => {
+  it("should return an error message if api response is not working", async () => {
     (fetchSearchAnimeByGenre as jest.Mock).mockRejectedValue(
       new Error("the api is not working")
     );

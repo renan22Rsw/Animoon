@@ -27,7 +27,7 @@ describe("useNextSeasonAnimes hook", () => {
     jest.clearAllMocks();
   });
 
-  it("should return next season animes data if api is working", async () => {
+  it("should return datas from api response", async () => {
     (fetchNextSeason as jest.Mock).mockResolvedValue(mock);
 
     const { result } = renderHook(() => useNextSeason(), { wrapper });
@@ -41,14 +41,14 @@ describe("useNextSeasonAnimes hook", () => {
     });
   });
 
-  it("should load if next seasson animes api is loading", async () => {
+  it("should load if datas from api response is loading", async () => {
     (fetchNextSeason as jest.Mock).mockResolvedValue(mock);
     const { result } = renderHook(() => useNextSeason(), { wrapper });
 
     await waitFor(() => expect(result.current.nextSeasonLoading).toBe(true));
   });
 
-  it("should return an erro message if next season animes api is not working", async () => {
+  it("should return an erro message if api response is not working", async () => {
     (fetchNextSeason as jest.Mock).mockRejectedValue(
       new Error("api is not working...")
     );

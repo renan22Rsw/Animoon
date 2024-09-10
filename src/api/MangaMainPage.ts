@@ -65,7 +65,7 @@ export const fetchSeasonsMangas = async (): Promise<Mangas[]> => {
   return data.Page.media;
 };
 
-export const fetchNextSeasonMangas = async (): Promise<Mangas[]> => {
+export const fetchPopularMangas = async (): Promise<Mangas[]> => {
   const { data } = await client.query<MangaData>({
     query: gql`
       query {

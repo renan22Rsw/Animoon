@@ -27,7 +27,7 @@ describe("useSeasonalAnimes hook", () => {
     jest.clearAllMocks();
   });
 
-  it("should return datas from api request", async () => {
+  it("should return datas from api response", async () => {
     (fetchSeasonsAnimes as jest.Mock).mockResolvedValue(mock);
 
     const { result } = renderHook(() => useSeasonalAnimes(), {
@@ -42,7 +42,7 @@ describe("useSeasonalAnimes hook", () => {
     });
   });
 
-  it("should load if api response is loading", async () => {
+  it("should load if datas from api response is loading", async () => {
     (fetchSeasonsAnimes as jest.Mock).mockResolvedValue(mock);
 
     const { result } = renderHook(() => useSeasonalAnimes(), { wrapper });

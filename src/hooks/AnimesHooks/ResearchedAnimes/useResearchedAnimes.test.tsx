@@ -43,7 +43,7 @@ describe("useResearchedAnimes hook", () => {
     });
   });
 
-  it("should load if data from api is loading", async () => {
+  it("should load if datas from api response is loading", async () => {
     (fetchResearchedAnimes as jest.Mock).mockResolvedValue(mock);
     const { result } = renderHook(() => useResearchedAnimes("One piece"), {
       wrapper,

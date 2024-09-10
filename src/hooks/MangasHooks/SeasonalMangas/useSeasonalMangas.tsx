@@ -1,4 +1,4 @@
-import { fetchSeasonsMangas, Mangas } from "@/api/MangaMainPage";
+import { fetchSeasonsMangas } from "@/api/MangaMainPage";
 import { useQuery } from "@tanstack/react-query";
 
 const useSeasonalMangas = () => {
