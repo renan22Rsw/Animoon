@@ -1,7 +1,7 @@
 import { getMangaById } from "@/api/MangaInfoPage";
 import CardCharacters from "@/components/Cards/CardCharacters/CardCharacters";
 import AnimeContainer from "@/components/Container/Anime/AnimeContainer";
-import CharactersContainer from "@/components/Container/CharactersContainer";
+import CharactersContainer from "@/components/Container/Characters/CharactersContainer";
 import Header from "@/components/Header/MainHeader/Header";
 import MangaSideBarInfo from "@/components/Infos/MangaInfo/MangaSideBarInfo";
 import { Manga } from "@/types/manga";
