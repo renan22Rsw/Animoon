@@ -4,9 +4,9 @@ import ApiNotWorking from "@/components/ApiNotWorking/ApiNotWorking";
 import MainPagesGrid from "@/components/Grids/MainPagesGrid";
 import Loading from "@/components/Loading/Loading";
 import PagesTitles from "@/components/Titles/PagesTitles";
-import useBirthdayCharacter from "@/hooks/CharactersHooks/useBirthdayCharacter";
-import useMostFavoritesCharacters from "@/hooks/CharactersHooks/useMostFavoritesCharacters";
-import useResearchedCharacter from "@/hooks/CharactersHooks/useResearchedCharacter";
+import useCharactersBirthdays from "@/hooks/CharactersHooks/Birthdays/useCharactersBirthdays";
+import useMostFavoritesCharacters from "@/hooks/CharactersHooks/MostFavorites/useMostFavoritesCharacters";
+import useResearchedCharacter from "@/hooks/CharactersHooks/ResearchedCharacters/useResearchedCharacter";
 import { useSearchParams } from "next/navigation";
 import React from "react";
 
@@ -15,10 +15,10 @@ const CharactersPage = () => {
   const parameterValue = query.get("search");
 
   const {
-    bithdayCharacter,
-    bithdayCharacterIsError,
-    bithdayCharacterIsLoading,
-  } = useBirthdayCharacter();
+    characterBirthday,
+    characterBirthdayIsError,
+    characterBirthdayIsLoading,
+  } = useCharactersBirthdays();
 
   const {
     mostFavoritesCharacter,
@@ -33,7 +33,7 @@ const CharactersPage = () => {
   } = useResearchedCharacter(parameterValue);
 
   if (
-    bithdayCharacterIsLoading ||
+    characterBirthdayIsLoading ||
     mostFavoritesCharacterIsLoading ||
     researchedCharacterIsLoading
   ) {
@@ -41,14 +41,14 @@ const CharactersPage = () => {
   }
 
   if (
-    bithdayCharacterIsError ||
+    characterBirthdayIsError ||
     mostFavoritesCharacterIsError ||
     researchedCharacterIsError
   ) {
     return <ApiNotWorking />;
   }
 
-  const birthday = bithdayCharacter?.slice(0, 30) || [];
+  const birthday = characterBirthday?.slice(0, 30) || [];
   const mostFavorited = mostFavoritesCharacter?.slice(0, 30) || [];
   const researched = researchedCharacter || [];
 
