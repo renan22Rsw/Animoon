@@ -1,7 +1,7 @@
 import { fetchSeasonsAnimes } from "@/api/AnimeMainPage";
 import { useQuery } from "@tanstack/react-query";
 
-const useSeasonalAnimes = () => {
+export const useSeasonalAnimes = () => {
   const {
     data: seasonalAnime,
     error: seasonalError,
