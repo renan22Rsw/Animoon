@@ -4,10 +4,12 @@ import { useRouter, usePathname } from "next/navigation";
 import React, { useEffect, useMemo, useState } from "react";
 import { Search } from "@mui/icons-material";
 import { geners } from "./genres";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 
 const InputSearch = () => {
   const [inputValue, setInputValue] = useState<string>("");
   const [selectValues, setSelectValues] = useState<string>("");
+  const [selectInput, setSelectInput] = useState<boolean>(false);
 
   const router = useRouter();
   const pathName = usePathname();
@@ -21,8 +23,8 @@ const InputSearch = () => {
     setInputValue(e.target.value);
   };
 
-  const handleSelectValues = (e: any) => {
-    setSelectValues(e.target.value);
+  const handleGenres = () => {
+    setSelectInput((e) => !e);
   };
 
   useEffect(() => {
@@ -40,6 +42,8 @@ const InputSearch = () => {
       }
     }, 1000);
 
+    handleGenres(); // close my selectInput
+
     return () => clearTimeout(searchAction);
   }, [router, inputValue, selectValues, pageQuery]);
   return (
@@ -47,26 +51,42 @@ const InputSearch = () => {
       <div className=" md:w-[320px] flex items-center text-white bg-[#161616] rounded-2xl outline-none border-none">
         <Search className="mx-4" />
         <input
-          className="bg-transparent w-full p-2 outline-none border-none"
+          className="bg-transparent w-[180px] p-2 outline-none border-none"
           type="search"
           value={inputValue}
+          placeholder="Search"
           onChange={HandleSearchChange}
         />
       </div>
-      {pageQuery.length <= 6 ? (
-        <select
-          onChange={handleSelectValues}
-          className="mx-4 p-2 rounded-xl bg-[#161616] w-[20px] md:w-auto"
-          data-testid="select-input"
-        >
-          {geners.map((genre) => (
-            <option key={genre.id} value={genre.genre} className="bg-[#161616]">
-              {genre.genre}
-            </option>
-          ))}
-        </select>
-      ) : (
-        ""
+
+      <ArrowDownwardIcon
+        data-testid="select-icon"
+        className="mx-4 bg-[#161616] w-[50px] h-[30px] rounded-lg cursor-pointer"
+        onClick={handleGenres}
+      />
+      {pageQuery.length <= 6 && (
+        <>
+          {selectInput && (
+            <div
+              className={`w-[250px] h-[250px] absolute top-48 overflow-y-scroll bg-[#161616] rounded-lg md:h-[300px] `}
+              data-testid="select-input"
+              onMouseLeave={(e) => setSelectInput(!e)}
+            >
+              <div className="mx-4 my-3 text-xl">Genres</div>
+
+              {geners.map((genre) => (
+                <div
+                  className="font-bold py-1 px-4 cursor-pointer duration-300 ease-in-out lg:hover:bg-[#101010]"
+                  key={genre.id}
+                  onClick={() => setSelectValues(genre.genre)}
+                  data-testid="options"
+                >
+                  {genre.genre}
+                </div>
+              ))}
+            </div>
+          )}
+        </>
       )}
     </>
   );
