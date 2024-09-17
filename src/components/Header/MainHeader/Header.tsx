@@ -13,11 +13,13 @@ const Header = ({ title, description, coverImage }: HeaderProps) => {
     <div className="text-white bg-[#1C1C1C] py-4 lg:flex 2xl:px-20  ">
       <div className=" p-4 md:flex  md:items-center md:w-3/4 lg:w-full lg:flex lg:items-center">
         <Image
-          width={130}
-          height={130}
+          width={300}
+          height={300}
+          layout="fixed"
+          quality={100}
           src={coverImage}
           alt="Header-Image"
-          style={{ height: "345px", width: "230px" }}
+          style={{ height: "auto", width: "230px" }}
           priority={true}
           className="rounded-md "
         />
