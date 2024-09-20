@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🌙 Animoon
 
-## Getting Started
+Animoon é uma aplicação web inspirada nos sites **[MyAniList](https://myanimelist.net/)** e **[Anilist](https://anilist.co/home)**. Os usuários podem obter informações atualizadas sobre animes, mangás e personagens. O Animoon também possui um mecanismo de busca, mas vale ressaltar que o projeto ainda está em fase de desenvolvimento.
 
-First, run the development server:
+## Demonstração
+
+![Demonstração do projeto](./public/images//Animoon-gif.gif)
+
+### Funcionalidades
+
+- 🔍 **Busca por titulos**: Pesquise animes e mangas pele titulo
+- 🎬 **Busca por genêros**: Pesquise animes e mangas pelo genêro
+- 📝 **Detalhes**: Veja informações detalhadas como sinopse, personagens, temporadas, e pontuações.
+- 📅 **Próximos Lançamentos**: Descubra os animes e mangás que serão lançados na próxima temporada.
+- 🏆 **Animes Populares**: Explore animes e mangás populares, ordenados por classificação
+- 🥳 **Personagens Aniversariantes**: Veja quais personagens estão comemorando aniversário hoje.
+- 📱 **Responsividade**: Layout adaptável para dispositivos móveis e desktop.
+
+### 🛠️ Tecnologias Utilizadas
+
+- **React.js**: Biblioteca JavaScript para criar interfaces de usuário.
+- **Next.js**: Framework React para renderização server-side e rotas dinâmicas.
+- **TypeScript**: Superset de JavaScript que adiciona tipagem estática.
+- **GraphQL**: Linguagem de consulta usada para comunicar-se com a API do AniList.
+- **React Query**: Gerenciamento de estado para dados assíncronos (requisições à API).
+- **Jest e @testing-library/react**: Ferramentas para testes unitários e de integração.
+- **Tailwind CSS**: Framework CSS utilitário para estilização responsiva.
+- **Apollo Client**: Gerenciamento de requisições GraphQL e cache.
+- [**AniList Api**](https://github.com/AniList/ApiV2-GraphQL-Docs): API usada para obter informações sobre animes, mangás e personagens.
+
+### 🚀 Instalção
+
+Para rodar o projeto localmente, siga os passos abaixo:
 
 ```bash
+1. Clone o repositório:
+
+git clone https://github.com/seu-usuario/animmon.git
+
+2. Entre no diretório do projeto:
+
+cd animmon
+
+3. Instale as dependências:
+
+npm install
+# ou
+yarn install
+
+
+4. Execute o projeto em modo de desenvolvimento
+
 npm run dev
-# or
+# ou
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
