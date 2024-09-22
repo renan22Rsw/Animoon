@@ -19,7 +19,7 @@ exports[`CardCharacters component should match a snapshot 1`] = `
         height="60"
         src="/_next/image?url=https%3A%2F%2Fexample.com%2Fcharacter-image.jpg&w=128&q=75"
         srcset="/_next/image?url=https%3A%2F%2Fexample.com%2Fcharacter-image.jpg&w=64&q=75 1x, /_next/image?url=https%3A%2F%2Fexample.com%2Fcharacter-image.jpg&w=128&q=75 2x"
-        style="color: transparent;"
+        style="color: transparent; width: 54px; height: auto;"
         width="60"
       />
       <span

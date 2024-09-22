@@ -15,6 +15,7 @@ const MangaRecomendations = ({ title, image, id }: RecommendationsProps) => {
         <Link href={`/mangas/${id}`}>
           <Image
             className="rounded-md mx-auto"
+            style={{ objectFit: "cover" }}
             src={image}
             width={150}
             height={150}

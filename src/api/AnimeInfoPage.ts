@@ -18,7 +18,7 @@ export const getAnimeById = async (id: number): Promise<Anime[]> => {
               romaji
             }
             coverImage {
-              large
+              extraLarge
             }
             description
             format

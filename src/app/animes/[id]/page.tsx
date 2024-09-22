@@ -21,7 +21,7 @@ const AnimeInfo = async ({ params }: ParamId) => {
   const animes = data.map((anime) => ({
     title: anime.title.romaji,
     description: anime.description,
-    image: anime.coverImage.large,
+    image: anime.coverImage.extraLarge,
     trailer: anime.trailer?.id,
 
     format: anime.format,

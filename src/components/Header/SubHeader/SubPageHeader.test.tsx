@@ -9,16 +9,16 @@ describe("SubPageHeader component", () => {
     const mobileImage = screen.getByTestId("mobile-version");
     expect(desktopImage).toBeInTheDocument();
     expect(mobileImage).toBeInTheDocument();
-    expect(desktopImage).toHaveAttribute("width", "130");
+    expect(desktopImage).toHaveAttribute("width", "300");
     expect(mobileImage).toHaveAttribute("width", "130");
-    expect(desktopImage).toHaveAttribute("height", "130");
+    expect(desktopImage).toHaveAttribute("height", "300");
     expect(mobileImage).toHaveAttribute("height", "130");
     expect(desktopImage).toHaveStyle({
-      height: "345px",
+      height: "auto",
       width: "230px",
     });
     expect(mobileImage).toHaveStyle({
-      height: "345px",
+      height: "auto",
       width: "230px",
     });
     expect(desktopImage).toHaveAttribute("fetchpriority", "high");

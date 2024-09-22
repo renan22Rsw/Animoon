@@ -27,8 +27,8 @@ describe("MainCard component", () => {
     const imgElement = screen.getByRole("img");
     expect(imgElement).toBeInTheDocument();
     expect(imgElement).toHaveAttribute("src");
-    expect(imgElement).toHaveAttribute("width", "200");
-    expect(imgElement).toHaveAttribute("height", "0");
+    expect(imgElement).toHaveAttribute("width", "300");
+    expect(imgElement).toHaveAttribute("height", "300");
   });
 
   it("should render mangas route", () => {
@@ -51,8 +51,8 @@ describe("MainCard component", () => {
     const imgElement = screen.getByRole("img");
     expect(imgElement).toBeInTheDocument();
     expect(imgElement).toHaveAttribute("src");
-    expect(imgElement).toHaveAttribute("width", "200");
-    expect(imgElement).toHaveAttribute("height", "0");
+    expect(imgElement).toHaveAttribute("width", "300");
+    expect(imgElement).toHaveAttribute("height", "300");
   });
 
   it("should render characters route", () => {
@@ -74,8 +74,8 @@ describe("MainCard component", () => {
     const imgElement = screen.getByRole("img");
     expect(imgElement).toBeInTheDocument();
     expect(imgElement).toHaveAttribute("src");
-    expect(imgElement).toHaveAttribute("width", "200");
-    expect(imgElement).toHaveAttribute("height", "0");
+    expect(imgElement).toHaveAttribute("width", "300");
+    expect(imgElement).toHaveAttribute("height", "300");
   });
 
   it("should match a snapshot", () => {

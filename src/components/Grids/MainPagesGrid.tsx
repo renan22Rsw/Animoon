@@ -27,7 +27,7 @@ interface MainPagesGridData {
 
 const MainPagesGrid = ({ datas }: MainPagesGridData) => {
   return (
-    <div className="grid grid-cols-3 text-center md:grid-cols-3 lg:grid-cols-6 md:mx-10">
+    <div className="grid grid-cols-3 md:mx-10 md:grid-cols-3 lg:grid-cols-6 lg:text-center ">
       {datas.map((data) => {
         const title = "title" in data ? data.title.romaji : data.name.full;
         const image =

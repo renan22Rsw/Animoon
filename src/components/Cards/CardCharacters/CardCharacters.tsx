@@ -36,6 +36,7 @@ const CardCharacters = ({
           width={60}
           height={60}
           priority={true}
+          style={{ width: "54px", height: "auto" }}
         />
         <span className="p-2 grid items-center w-[180px]  gap-y-6">
           <h4>{name}</h4>

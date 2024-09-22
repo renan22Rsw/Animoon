@@ -19,7 +19,7 @@ const AnimeRecomendations = ({ title, image, id }: RecommendationsProps) => {
             width={100}
             height={100}
             alt="recomendation-anime"
-            style={{ width: "130px", height: "180px" }}
+            style={{ width: "130px", height: "180px", objectFit: "fill" }}
           />
         </Link>
         <h6 className="my-2 text-white text-sm 2xl:text-base">

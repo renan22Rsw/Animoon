@@ -15,7 +15,6 @@ const Header = ({ title, description, coverImage }: HeaderProps) => {
         <Image
           width={300}
           height={300}
-          layout="fixed"
           quality={100}
           src={coverImage}
           alt="Header-Image"

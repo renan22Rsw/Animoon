@@ -7,7 +7,7 @@ exports[`SubPageHeader component should match a snapshot 1`] = `
       class="bg-[#1C1C1C] pb-[30px] pt-[20px] h-[200px] text-[#9FADB3]  "
     >
       <div
-        class="max-w-[1200px] hidden m-8 md:flex md:items-center lg:mx-10 2xl:mx-auto"
+        class="max-w-[1200px]  hidden m-8 md:flex md:items-center lg:mx-10 2xl:mx-auto"
       >
         <img
           alt="Anime-Image"
@@ -16,11 +16,11 @@ exports[`SubPageHeader component should match a snapshot 1`] = `
           data-testid="desktop-version"
           decoding="async"
           fetchpriority="high"
-          height="130"
-          src="/_next/image?url=http%3A%2F%2Fexample.com%2Fimage.jpg&w=384&q=75"
-          srcset="/_next/image?url=http%3A%2F%2Fexample.com%2Fimage.jpg&w=256&q=75 1x, /_next/image?url=http%3A%2F%2Fexample.com%2Fimage.jpg&w=384&q=75 2x"
-          style="color: transparent; height: 345px; width: 230px;"
-          width="130"
+          height="300"
+          src="/_next/image?url=http%3A%2F%2Fexample.com%2Fimage.jpg&w=640&q=100"
+          srcset="/_next/image?url=http%3A%2F%2Fexample.com%2Fimage.jpg&w=384&q=100 1x, /_next/image?url=http%3A%2F%2Fexample.com%2Fimage.jpg&w=640&q=100 2x"
+          style="color: transparent; height: auto; width: 230px; object-fit: cover;"
+          width="300"
         />
         <div
           class="my-4 mx-8  h-[300px]"
@@ -129,7 +129,7 @@ exports[`SubPageHeader component should match a snapshot 1`] = `
             height="130"
             src="/_next/image?url=http%3A%2F%2Fexample.com%2Fimage.jpg&w=384&q=75"
             srcset="/_next/image?url=http%3A%2F%2Fexample.com%2Fimage.jpg&w=256&q=75 1x, /_next/image?url=http%3A%2F%2Fexample.com%2Fimage.jpg&w=384&q=75 2x"
-            style="color: transparent; height: 345px; width: 230px;"
+            style="color: transparent; height: auto; width: 230px; object-fit: cover;"
             width="130"
           />
         </div>

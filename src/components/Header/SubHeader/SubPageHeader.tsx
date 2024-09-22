@@ -34,13 +34,14 @@ const SubPageHeader = ({
   return (
     <div>
       <div className="bg-[#1C1C1C] pb-[30px] pt-[20px] h-[200px] text-[#9FADB3]  ">
-        <div className="max-w-[1200px] hidden m-8 md:flex md:items-center lg:mx-10 2xl:mx-auto">
+        <div className="max-w-[1200px]  hidden m-8 md:flex md:items-center lg:mx-10 2xl:mx-auto">
           <Image
-            width={130}
-            height={130}
+            width={300}
+            height={300}
+            quality={100}
             src={image}
             alt="Anime-Image"
-            style={{ height: "345px", width: "230px" }}
+            style={{ height: "auto", width: "230px", objectFit: "cover" }}
             priority={true}
             className="rounded-md "
             data-testid="desktop-version"
@@ -104,7 +105,7 @@ const SubPageHeader = ({
               height={130}
               src={image}
               alt="Anime-Image"
-              style={{ height: "345px", width: "230px" }}
+              style={{ height: "auto", width: "230px", objectFit: "cover" }}
               priority={true}
               className="rounded-md "
               data-testid="mobile-version"

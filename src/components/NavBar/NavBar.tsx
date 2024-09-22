@@ -12,7 +12,7 @@ const NavBar = () => {
   return (
     <>
       <nav className="bg-[#161616] text-white py-6 px-4 lg:px-32 flex items-center  justify-center rounded-sm">
-        <Image src={logo} width={50} height={50} alt="logo" />
+        <Image src={logo} width={50} height={50} alt="logo" priority />
         <h1 className="text-white font-bold mx-2 text-xl">AniMoon</h1>
 
         <div className=" w-full hidden  justify-center lg:flex ">

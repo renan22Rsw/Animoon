@@ -1,12 +1,13 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import InputSearch from "./InputSearch";
 import { userEvent } from "@testing-library/user-event";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 
 jest.mock("next/navigation", () => ({
   useRouter: jest.fn(),
   usePathname: jest.fn(),
+  useSearchParams: jest.fn(),
 }));
 
 describe("InputSearch component", () => {
@@ -18,6 +19,8 @@ describe("InputSearch component", () => {
   it("should render select if pathname is less or equal than 6", () => {
     (usePathname as jest.Mock).mockImplementation(() => `/search/abc`);
     render(<InputSearch />);
+    const selectIcon = screen.getByTestId("select-icon");
+    fireEvent.click(selectIcon);
     const select = screen.getByTestId("select-input");
     expect(select).toBeInTheDocument();
   });
@@ -32,6 +35,8 @@ describe("InputSearch component", () => {
   it("should updatae selectValue on div click", async () => {
     (usePathname as jest.Mock).mockImplementation(() => `/search/abc`);
     render(<InputSearch />);
+    const selectIcon = screen.getByTestId("select-icon");
+    fireEvent.click(selectIcon);
     const options = screen.getAllByTestId("options");
     const genre = options[1];
     await userEvent.click(genre);
@@ -41,7 +46,8 @@ describe("InputSearch component", () => {
   it("should render the correct options", () => {
     (usePathname as jest.Mock).mockImplementation(() => `/search/abc`);
     render(<InputSearch />);
-
+    const selectIcon = screen.getByTestId("select-icon");
+    fireEvent.click(selectIcon);
     const options = screen.getAllByTestId("options");
 
     expect(options[0]).toContainHTML("");
@@ -84,6 +90,8 @@ describe("InputSearch component", () => {
     const pushMock = jest.fn();
     (useRouter as jest.Mock).mockReturnValue({ push: pushMock });
     render(<InputSearch />);
+    const selectIcon = screen.getByTestId("select-icon");
+    fireEvent.click(selectIcon);
     const options = screen.getAllByTestId("options");
     const genre = options[1];
     await userEvent.click(genre);
@@ -103,6 +111,9 @@ describe("InputSearch component", () => {
 
     const input = screen.getByRole("searchbox");
     await userEvent.type(input, "Naruto");
+
+    const selectIcon = screen.getByTestId("select-icon");
+    fireEvent.click(selectIcon);
 
     const options = screen.getAllByTestId("options");
     const genre = options[1];

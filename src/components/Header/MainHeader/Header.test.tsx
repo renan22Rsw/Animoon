@@ -7,13 +7,13 @@ describe("MainHeader component", () => {
     render(<Header {...mock} />);
     const image = screen.getByRole("img");
     expect(image).toBeInTheDocument();
-    expect(image).toHaveAttribute("width", "130");
+    expect(image).toHaveAttribute("width", "300");
     expect(image).toHaveAttribute("src");
-    expect(image).toHaveAttribute("height", "130");
+    expect(image).toHaveAttribute("height", "300");
     expect(image).toHaveAttribute("fetchpriority", "high");
     expect(image).toHaveStyle({
       width: "230px",
-      height: "345px",
+      height: "auto",
     });
   });
 

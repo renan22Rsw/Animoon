@@ -67,7 +67,7 @@ export interface Anime {
   genres: string[];
 
   coverImage: {
-    large: string;
+    extraLarge: string;
   };
 
   characters: {
