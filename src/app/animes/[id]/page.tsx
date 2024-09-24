@@ -17,7 +17,8 @@ import { Anime } from "@/types/anime";
 import React from "react";
 
 const AnimeInfo = async ({ params }: ParamId) => {
-  const data: Anime[] = await getAnimeById(params.id);
+  const { id } = params;
+  const data: Anime[] = await getAnimeById(id);
   const animes = data.map((anime) => ({
     title: anime.title.romaji,
     description: anime.description,

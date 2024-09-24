@@ -20,8 +20,8 @@ import ApiNotWorking from "@/components/ApiNotWorking/ApiNotWorking";
 
 export const AnimePage = () => {
   const query = useSearchParams();
-  const parameterValue = query.get("search");
-  const genreParameter = query.get("genres");
+  const parameterValue = query?.get("search");
+  const genreParameter = query?.get("genres");
 
   const { seasonalAnime, seasonalIsloading, seasonalError } =
     useSeasonalAnimes();

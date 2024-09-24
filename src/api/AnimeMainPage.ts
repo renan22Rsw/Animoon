@@ -1,5 +1,13 @@
 import { gql } from "@apollo/client";
 import { client } from "@/app/ApoloClient";
+import {
+  FETCH_GENRES_ANIMES,
+  FETCH_NEXT_SEASON_ANIMES,
+  FETCH_RESEARCHED_ANIMES,
+  FETCH_SEARCH_GENRES_ANIMES,
+  FETCH_SEASONAL_ANIMES,
+  FETCH_TOP_ANIMES,
+} from "@/queries/Animes/AnimeMainPage";
 
 interface Animes {
   id: number;
@@ -45,73 +53,21 @@ interface topAnimesResult {
 
 export const fetchSeasonsAnimes = async (): Promise<Animes[]> => {
   const { data } = await client.query<AnimeData>({
-    query: gql`
-      query {
-        Page(page: 1) {
-          media(type: ANIME, sort: TRENDING_DESC) {
-            id
-            title {
-              romaji
-            }
-            coverImage {
-              large
-            }
-          }
-        }
-      }
-    `,
+    query: FETCH_SEASONAL_ANIMES,
   });
   return data.Page.media;
 };
 
 export const fetchNextSeason = async (): Promise<Animes[]> => {
   const { data } = await client.query<AnimeData>({
-    query: gql`
-      query {
-        Page(page: 1) {
-          media(type: ANIME, status: NOT_YET_RELEASED, sort: POPULARITY_DESC) {
-            id
-            title {
-              romaji
-            }
-            coverImage {
-              large
-            }
-          }
-        }
-      }
-    `,
+    query: FETCH_NEXT_SEASON_ANIMES,
   });
   return data.Page.media;
 };
 
 export const fetchTopAnimes = async (): Promise<topAnimes[]> => {
   const { data } = await client.query<topAnimesResult>({
-    query: gql`
-      query {
-        Page(page: 1) {
-          media(type: ANIME, sort: SCORE_DESC) {
-            id
-            title {
-              romaji
-            }
-            coverImage {
-              large
-            }
-            rankings {
-              id
-            }
-            episodes
-            season
-            status
-            seasonYear
-            type
-            favourites
-            format
-          }
-        }
-      }
-    `,
+    query: FETCH_TOP_ANIMES,
   });
 
   return data.Page.media;
@@ -121,21 +77,7 @@ export const fetchResearchedAnimes = async (
   parameter: string | null
 ): Promise<Animes[]> => {
   const { data } = await client.query<AnimeData>({
-    query: gql`
-      query ($search: String) {
-        Page(page: 1) {
-          media(type: ANIME, isAdult: false, search: $search) {
-            id
-            title {
-              romaji
-            }
-            coverImage {
-              large
-            }
-          }
-        }
-      }
-    `,
+    query: FETCH_RESEARCHED_ANIMES,
     variables: { search: parameter },
   });
   return data.Page.media;
@@ -145,26 +87,7 @@ export const fetchGenresAnimes = async (
   parameter: string | null
 ): Promise<Animes[]> => {
   const { data } = await client.query<AnimeData>({
-    query: gql`
-      query ($genre: String) {
-        Page(page: 1) {
-          media(
-            type: ANIME
-            isAdult: false
-            genre: $genre
-            sort: POPULARITY_DESC
-          ) {
-            id
-            title {
-              romaji
-            }
-            coverImage {
-              large
-            }
-          }
-        }
-      }
-    `,
+    query: FETCH_GENRES_ANIMES,
     variables: { genre: parameter },
   });
   return data.Page.media;
@@ -175,22 +98,8 @@ export const fetchSearchAnimeByGenre = async (
   genre: string | null
 ): Promise<Animes[]> => {
   const { data } = await client.query<AnimeData>({
-    query: gql`
-      query ($search: String, $genre: String) {
-        Page(page: 1) {
-          media(type: ANIME, isAdult: false, search: $search, genre: $genre) {
-            id
-            title {
-              romaji
-            }
-            coverImage {
-              large
-            }
-          }
-        }
-      }
-    `,
-    variables: { genre: genre, search: search },
+    query: FETCH_SEARCH_GENRES_ANIMES,
+    variables: { search: search, genre: genre },
   });
   return data.Page.media;
 };

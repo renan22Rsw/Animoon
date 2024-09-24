@@ -28,7 +28,8 @@
     ".next/types/**/*.ts",
     "src/components/TopAnimes&MangaColumn/TopColumn",
     "src/components/TextArea/TextArea.jsx",
-    "src/components/Recomendations/mock.ts"
+    "src/components/Recomendations/mock.ts",
+    "_tests_/Animes/Animes.test.tsx"
   ],
   "exclude": ["node_modules"]
 }
