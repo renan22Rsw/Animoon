@@ -1,5 +1,11 @@
 import { client } from "@/app/ApoloClient";
-import { gql } from "@apollo/client";
+import {
+  FETCH_GENRES_MANGAS,
+  FETCH_POPULAR_MANGAS,
+  FETCH_RESEARCHED_MANGAS,
+  FETCH_SEASONAL_MANGAS,
+  FETCH_TOP_MANGAS,
+} from "@/queries/Mangas/MangaMainPage";
 
 export interface Mangas {
   id: number;
@@ -45,21 +51,7 @@ interface topMangasResult {
 
 export const fetchSeasonsMangas = async (): Promise<Mangas[]> => {
   const { data } = await client.query<MangaData>({
-    query: gql`
-      query {
-        Page(page: 1) {
-          media(type: MANGA, sort: TRENDING_DESC) {
-            id
-            title {
-              romaji
-            }
-            coverImage {
-              large
-            }
-          }
-        }
-      }
-    `,
+    query: FETCH_SEASONAL_MANGAS,
   });
 
   return data.Page.media;
@@ -67,54 +59,14 @@ export const fetchSeasonsMangas = async (): Promise<Mangas[]> => {
 
 export const fetchPopularMangas = async (): Promise<Mangas[]> => {
   const { data } = await client.query<MangaData>({
-    query: gql`
-      query {
-        Page(page: 1) {
-          media(type: MANGA, sort: POPULARITY_DESC) {
-            id
-            title {
-              romaji
-            }
-            coverImage {
-              large
-            }
-          }
-        }
-      }
-    `,
+    query: FETCH_POPULAR_MANGAS,
   });
   return data.Page.media;
 };
 
 export const fetchTopMangas = async (): Promise<topMangas[]> => {
   const { data } = await client.query<topMangasResult>({
-    query: gql`
-      query {
-        Page(page: 1) {
-          media(type: MANGA, sort: SCORE_DESC) {
-            id
-            title {
-              romaji
-            }
-            coverImage {
-              large
-            }
-            rankings {
-              id
-            }
-            chapters
-            volumes
-            season
-            status
-            seasonYear
-            type
-            favourites
-            format
-            meanScore
-          }
-        }
-      }
-    `,
+    query: FETCH_TOP_MANGAS,
   });
 
   return data.Page.media;
@@ -124,21 +76,7 @@ export const fetchResearchedMangas = async (
   parameter: string | null
 ): Promise<Mangas[]> => {
   const { data } = await client.query<MangaData>({
-    query: gql`
-      query ($search: String) {
-        Page(page: 1) {
-          media(type: MANGA, isAdult: false, search: $search) {
-            id
-            title {
-              romaji
-            }
-            coverImage {
-              large
-            }
-          }
-        }
-      }
-    `,
+    query: FETCH_RESEARCHED_MANGAS,
     variables: { search: parameter },
   });
   return data.Page.media;
@@ -148,26 +86,8 @@ export const fetchGenresMangas = async (
   parameter: string | null
 ): Promise<Mangas[]> => {
   const { data } = await client.query<MangaData>({
-    query: gql`
-      query ($genre: String) {
-        Page(page: 1) {
-          media(
-            type: MANGA
-            isAdult: false
-            genre: $genre
-            sort: POPULARITY_DESC
-          ) {
-            id
-            title {
-              romaji
-            }
-            coverImage {
-              large
-            }
-          }
-        }
-      }
-    `,
+    query: FETCH_GENRES_MANGAS,
+
     variables: { genre: parameter },
   });
   return data.Page.media;
@@ -178,21 +98,7 @@ export const fetchSearchMangasByGenre = async (
   genre: string | null
 ): Promise<Mangas[]> => {
   const { data } = await client.query<MangaData>({
-    query: gql`
-      query ($search: String, $genre: String) {
-        Page(page: 1) {
-          media(type: MANGA, isAdult: false, search: $search, genre: $genre) {
-            id
-            title {
-              romaji
-            }
-            coverImage {
-              large
-            }
-          }
-        }
-      }
-    `,
+    query: FETCH_GENRES_MANGAS,
     variables: { genre: genre, search: search },
   });
   return data.Page.media;
