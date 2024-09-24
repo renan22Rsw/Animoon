@@ -1,7 +1,6 @@
 import { client } from "@/app/ApoloClient";
 import { FETCH_MANGAS_BY_ID } from "@/queries/Mangas/MangasInfoPage";
 import { Manga } from "@/types/manga";
-import { gql } from "@apollo/client";
 
 interface MangaByidData {
   Page: {
