@@ -57,7 +57,7 @@ const TopColumns = ({
             <li className="px-4 font-bold ">{type}</li>
             <li className="px-4 font-bold capitalize">{season + ` ${year}`}</li>
             <li className="px-4 font-light text-xs flex items-center justify-center ">
-              {favorites.toString()}{" "}
+              {favorites?.toString()}{" "}
               <FaStar className="text-yellow-400 mx-1 text-xs" />{" "}
             </li>
             <li className="px-4 font-light text-xs ">{episodes + " ep"}</li>
