@@ -9,10 +9,8 @@ import {
 import AnimePage from "@/app/search/animes/page";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import { mockAnimes, topAnimesMock } from "./mock";
-import { useRouter } from "next/navigation";
-import userEvent from "@testing-library/user-event";
 
 jest.mock("../../src/app/ApoloClient", () => ({
   client: jest.fn(),

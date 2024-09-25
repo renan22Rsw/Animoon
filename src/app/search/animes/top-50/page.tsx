@@ -1,5 +1,6 @@
 "use client";
 
+import ApiNotWorking from "@/components/ApiNotWorking/ApiNotWorking";
 import MainPagesGrid from "@/components/Grids/MainPagesGrid";
 import Loading from "@/components/Loading/Loading";
 import PagesTitles from "@/components/Titles/PagesTitles";
@@ -14,14 +15,14 @@ const Top50Animes = () => {
   }
 
   if (topAnimesError) {
-    return <div>Api is not working...</div>;
+    return <ApiNotWorking />;
   }
 
   const top = topAnimes || [];
 
   return (
     <>
-      <PagesTitles>Top 50 Anime</PagesTitles>
+      <PagesTitles>Top 50 Animes</PagesTitles>
       <MainPagesGrid datas={top} />
     </>
   );
