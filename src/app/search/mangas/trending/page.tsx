@@ -1,5 +1,6 @@
 "use client";
 
+import ApiNotWorking from "@/components/ApiNotWorking/ApiNotWorking";
 import MainPagesGrid from "@/components/Grids/MainPagesGrid";
 import Loading from "@/components/Loading/Loading";
 import PagesTitles from "@/components/Titles/PagesTitles";
@@ -15,14 +16,14 @@ const TrendingMangas = () => {
   }
 
   if (seasonalMangasIsError) {
-    return <div>Api is not working...</div>;
+    return <ApiNotWorking />;
   }
 
   const trending = seasonalMangas || [];
 
   return (
     <>
-      <PagesTitles>Trending Now</PagesTitles>
+      <PagesTitles>Trending Mangas</PagesTitles>
       <MainPagesGrid datas={trending} />
     </>
   );

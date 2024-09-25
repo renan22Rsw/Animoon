@@ -16,13 +16,13 @@ const client = new QueryClient({
   },
 });
 
-describe("trending page", () => {
+describe("trending animes page", () => {
   afterEach(() => {
     client.clear();
     jest.clearAllMocks();
   });
 
-  it("should reder datas from trending page", async () => {
+  it("should reder datas from trending animes page", async () => {
     (fetchSeasonsAnimes as jest.Mock).mockResolvedValue(mockAnimes);
     render(
       <QueryClientProvider client={client}>

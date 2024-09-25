@@ -1,12 +1,11 @@
-import { fetchNextSeason, fetchSeasonsAnimes } from "@/api/AnimeMainPage";
-import TrendingAnimes from "@/app/search/animes/trending/page";
+import { fetchPopularMangas } from "@/api/MangaMainPage";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { render, screen, waitFor } from "@testing-library/react";
-import { mockAnimes } from "./mock";
-import NextSeasonAnimes from "@/app/search/animes/next_season/page";
+import { mockMangas } from "./mock";
+import AllTimePopular from "@/app/search/mangas/popular/page";
 
-jest.mock("../../src/api/AnimeMainPage", () => ({
-  fetchNextSeason: jest.fn(),
+jest.mock("../../src/api/MangaMainPage", () => ({
+  fetchPopularMangas: jest.fn(),
 }));
 
 const client = new QueryClient({
@@ -17,33 +16,31 @@ const client = new QueryClient({
   },
 });
 
-describe("Next season animes page", () => {
+describe("All Time Popular mangas page", () => {
   afterEach(() => {
     client.clear();
     jest.clearAllMocks();
   });
-
-  it("should reder datas from next season animes page", async () => {
-    (fetchNextSeason as jest.Mock).mockResolvedValue(mockAnimes);
+  it("should reder datas from all time popular mangas page", async () => {
+    (fetchPopularMangas as jest.Mock).mockResolvedValue(mockMangas);
     render(
       <QueryClientProvider client={client}>
-        <NextSeasonAnimes />
+        <AllTimePopular />
       </QueryClientProvider>
     );
     await waitFor(() => {
-      expect(screen.getByText("Up Coming Next Season")).toBeInTheDocument();
-      expect(screen.getByText("Anime Test")).toBeInTheDocument();
+      expect(screen.getByText("All Time Popular")).toBeInTheDocument();
+      expect(screen.getByText("Mangas Test")).toBeInTheDocument();
       expect(screen.getByRole("img")).toBeInTheDocument();
       expect(screen.getByRole("link")).toBeInTheDocument();
     });
   });
 
   it("should return loading component if data is loading", async () => {
-    (fetchNextSeason as jest.Mock).mockResolvedValue(mockAnimes);
-
+    (fetchPopularMangas as jest.Mock).mockResolvedValue(mockMangas);
     render(
       <QueryClientProvider client={client}>
-        <TrendingAnimes />
+        <AllTimePopular />
       </QueryClientProvider>
     );
 
@@ -53,11 +50,11 @@ describe("Next season animes page", () => {
   });
 
   it("should return api is not working component", async () => {
-    (fetchNextSeason as jest.Mock).mockRejectedValue(new Error());
+    (fetchPopularMangas as jest.Mock).mockRejectedValue(new Error());
 
     render(
       <QueryClientProvider client={client}>
-        <TrendingAnimes />
+        <AllTimePopular />
       </QueryClientProvider>
     );
     await waitFor(() => {
