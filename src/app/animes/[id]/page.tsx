@@ -14,7 +14,8 @@ import AnimeRecomendations from "@/components/Recomendations/Animes/AnimeRecomen
 
 import { Anime } from "@/types/anime";
 
-import React from "react";
+import React, { Suspense } from "react";
+import Loading from "@/components/Loading/Loading";
 
 const AnimeInfo = async ({ params }: ParamId) => {
   const { id } = params;
@@ -68,7 +69,7 @@ const AnimeInfo = async ({ params }: ParamId) => {
   const anime = animes[0];
 
   return (
-    <>
+    <Suspense fallback={<Loading />}>
       <Header
         title={anime.title}
         description={anime.description.replace(/<[^>]+>/g, "")}
@@ -133,7 +134,7 @@ const AnimeInfo = async ({ params }: ParamId) => {
           ""
         )}
       </AnimeContainer>
-    </>
+    </Suspense>
   );
 };
 

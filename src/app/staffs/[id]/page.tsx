@@ -1,10 +1,12 @@
 import { fetchStaffsById } from "@/api/StaffInfoPage";
 import CharacterHeader from "@/components/Header/SubHeader/SubPageHeader";
+import Loading from "@/components/Loading/Loading";
 import { Staffs } from "@/types/staff";
-import React from "react";
+import React, { Suspense } from "react";
 
 const StaffInfo = async ({ params }: ParamId) => {
-  const data: Staffs[] = await fetchStaffsById(params.id);
+  const { id } = params;
+  const data: Staffs[] = await fetchStaffsById(id);
   const staffs = data.map((staff) => ({
     name: staff.name.full,
     nativeName: staff.name.native,
@@ -22,7 +24,7 @@ const StaffInfo = async ({ params }: ParamId) => {
   const staff = staffs[0];
 
   return (
-    <>
+    <Suspense fallback={<Loading />}>
       <CharacterHeader
         name={staff.name}
         nativeName={staff.nativeName}
@@ -36,7 +38,7 @@ const StaffInfo = async ({ params }: ParamId) => {
         yearsActive={staff.yearActive}
         description={staff.description?.replace(/<[^>]+>|[_!~*]/g, "")}
       />
-    </>
+    </Suspense>
   );
 };
 

@@ -4,16 +4,18 @@ import AnimeContainer from "@/components/Container/Anime/AnimeContainer";
 import CharactersContainer from "@/components/Container/Characters/CharactersContainer";
 import Header from "@/components/Header/MainHeader/Header";
 import AnimeSideBarInfo from "@/components/Infos/AnimeInfo/AnimeSideBarInfo";
+import Loading from "@/components/Loading/Loading";
 import { Anime } from "@/types/anime";
 
-import React from "react";
+import React, { Suspense } from "react";
 
 const SubAnimesCharactersPage = async ({ params }: ParamId) => {
-  const data: Anime[] = await getAnimeById(params.id);
+  const { id } = params;
+  const data: Anime[] = await getAnimeById(id);
   const animes = data.map((anime) => ({
     title: anime.title.romaji,
     description: anime.description,
-    image: anime.coverImage.large,
+    image: anime.coverImage.extraLarge,
 
     format: anime.format,
     duration: anime.duration,
@@ -46,7 +48,7 @@ const SubAnimesCharactersPage = async ({ params }: ParamId) => {
   const anime = animes[0];
 
   return (
-    <>
+    <Suspense fallback={<Loading />}>
       <Header
         title={anime.title}
         coverImage={anime.image}
@@ -81,7 +83,7 @@ const SubAnimesCharactersPage = async ({ params }: ParamId) => {
           ))}
         </CharactersContainer>
       </AnimeContainer>
-    </>
+    </Suspense>
   );
 };
 
