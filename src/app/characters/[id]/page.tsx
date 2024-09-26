@@ -1,8 +1,8 @@
 import { fetchCharactersById } from "@/api/CharacterInfoPage";
 import SubPageHeader from "@/components/Header/SubHeader/SubPageHeader";
-import Loading from "@/components/Loading/Loading";
+
 import { Characters } from "@/types/character";
-import React, { Suspense } from "react";
+import React from "react";
 
 const CharacterInfo = async ({ params }: ParamId) => {
   const { id } = params;
@@ -23,7 +23,7 @@ const CharacterInfo = async ({ params }: ParamId) => {
   const character = characters[0];
 
   return (
-    <Suspense fallback={<Loading />}>
+    <>
       <SubPageHeader
         name={character.name}
         nativeName={character.nativeName}
@@ -39,7 +39,7 @@ const CharacterInfo = async ({ params }: ParamId) => {
           ""
         )}
       />
-    </Suspense>
+    </>
   );
 };
 

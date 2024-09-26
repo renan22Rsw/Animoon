@@ -1,13 +1,12 @@
 import { getAnimeById } from "@/api/AnimeInfoPage";
 import { Anime } from "@/types/anime";
-import React, { Suspense } from "react";
+import React from "react";
 
 import Header from "@/components/Header/MainHeader/Header";
 import AnimeSideBarInfo from "@/components/Infos/AnimeInfo/AnimeSideBarInfo";
 import AnimeContainer from "@/components/Container/Anime/AnimeContainer";
 import StaffContainer from "@/components/Container/Staffs/StaffContainer";
 import CardStaff from "@/components/Cards/CardStaffs/CardStaff";
-import Loading from "@/components/Loading/Loading";
 
 const SubAnimeStaffssPage = async ({ params }: ParamId) => {
   const { id } = params;
@@ -41,7 +40,7 @@ const SubAnimeStaffssPage = async ({ params }: ParamId) => {
   const anime = animes[0];
 
   return (
-    <Suspense fallback={<Loading />}>
+    <>
       <Header
         title={anime.title}
         description={anime.description.replace(/<[^>]+>/g, "")}
@@ -75,7 +74,7 @@ const SubAnimeStaffssPage = async ({ params }: ParamId) => {
           ))}
         </StaffContainer>
       </AnimeContainer>
-    </Suspense>
+    </>
   );
 };
 

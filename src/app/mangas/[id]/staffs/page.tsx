@@ -5,9 +5,8 @@ import AnimeContainer from "@/components/Container/Anime/AnimeContainer";
 import StaffContainer from "@/components/Container/Staffs/StaffContainer";
 import Header from "@/components/Header/MainHeader/Header";
 import MangaSideBarInfo from "@/components/Infos/MangaInfo/MangaSideBarInfo";
-import Loading from "@/components/Loading/Loading";
 import { Manga } from "@/types/manga";
-import React, { Suspense } from "react";
+import React from "react";
 
 const SubMangasStaffsPage = async ({ params }: ParamId) => {
   const { id } = params;
@@ -37,7 +36,7 @@ const SubMangasStaffsPage = async ({ params }: ParamId) => {
   const manga = mangas[0];
 
   return (
-    <Suspense fallback={<Loading />}>
+    <>
       <Header
         title={manga.title}
         coverImage={manga.image}
@@ -68,7 +67,7 @@ const SubMangasStaffsPage = async ({ params }: ParamId) => {
           ))}
         </StaffContainer>
       </AnimeContainer>
-    </Suspense>
+    </>
   );
 };
 export default SubMangasStaffsPage;

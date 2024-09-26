@@ -12,8 +12,7 @@ import MangaSideBarInfo from "@/components/Infos/MangaInfo/MangaSideBarInfo";
 import MangaRecomendations from "@/components/Recomendations/Mangas/MangaRecomendations";
 
 import { Manga } from "@/types/manga";
-import React, { Suspense } from "react";
-import Loading from "@/components/Loading/Loading";
+import React from "react";
 
 const MangaInfo = async ({ params }: ParamId) => {
   const { id } = params;
@@ -58,7 +57,7 @@ const MangaInfo = async ({ params }: ParamId) => {
   const manga = mangas[0];
 
   return (
-    <Suspense fallback={<Loading />}>
+    <>
       <Header
         title={manga.title}
         coverImage={manga.image}
@@ -116,7 +115,7 @@ const MangaInfo = async ({ params }: ParamId) => {
           ))}
         </RecommendationsContainer>
       </AnimeContainer>
-    </Suspense>
+    </>
   );
 };
 

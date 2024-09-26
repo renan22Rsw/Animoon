@@ -12,10 +12,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { render, screen, waitFor } from "@testing-library/react";
 import { mockAnimes, topAnimesMock } from "./mock";
 
-jest.mock("../../src/app/ApoloClient", () => ({
-  client: jest.fn(),
-}));
-
 jest.mock("../../src/api/AnimeMainPage", () => ({
   fetchSeasonsAnimes: jest.fn(),
   fetchNextSeason: jest.fn(),

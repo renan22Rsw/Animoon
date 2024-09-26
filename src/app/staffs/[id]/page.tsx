@@ -1,8 +1,7 @@
 import { fetchStaffsById } from "@/api/StaffInfoPage";
 import CharacterHeader from "@/components/Header/SubHeader/SubPageHeader";
-import Loading from "@/components/Loading/Loading";
 import { Staffs } from "@/types/staff";
-import React, { Suspense } from "react";
+import React from "react";
 
 const StaffInfo = async ({ params }: ParamId) => {
   const { id } = params;
@@ -24,21 +23,19 @@ const StaffInfo = async ({ params }: ParamId) => {
   const staff = staffs[0];
 
   return (
-    <Suspense fallback={<Loading />}>
-      <CharacterHeader
-        name={staff.name}
-        nativeName={staff.nativeName}
-        age={staff.age}
-        image={staff.image}
-        gender={staff.gender}
-        month={staff.month}
-        day={staff.day}
-        bloodType={staff.bloodType}
-        hometown={staff.homeTown}
-        yearsActive={staff.yearActive}
-        description={staff.description?.replace(/<[^>]+>|[_!~*]/g, "")}
-      />
-    </Suspense>
+    <CharacterHeader
+      name={staff.name}
+      nativeName={staff.nativeName}
+      age={staff.age}
+      image={staff.image}
+      gender={staff.gender}
+      month={staff.month}
+      day={staff.day}
+      bloodType={staff.bloodType}
+      hometown={staff.homeTown}
+      yearsActive={staff.yearActive}
+      description={staff.description?.replace(/<[^>]+>|[_!~*]/g, "")}
+    />
   );
 };
 

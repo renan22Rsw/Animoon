@@ -4,10 +4,10 @@ import AnimeContainer from "@/components/Container/Anime/AnimeContainer";
 import CharactersContainer from "@/components/Container/Characters/CharactersContainer";
 import Header from "@/components/Header/MainHeader/Header";
 import AnimeSideBarInfo from "@/components/Infos/AnimeInfo/AnimeSideBarInfo";
-import Loading from "@/components/Loading/Loading";
+
 import { Anime } from "@/types/anime";
 
-import React, { Suspense } from "react";
+import React from "react";
 
 const SubAnimesCharactersPage = async ({ params }: ParamId) => {
   const { id } = params;
@@ -48,7 +48,7 @@ const SubAnimesCharactersPage = async ({ params }: ParamId) => {
   const anime = animes[0];
 
   return (
-    <Suspense fallback={<Loading />}>
+    <>
       <Header
         title={anime.title}
         coverImage={anime.image}
@@ -83,7 +83,7 @@ const SubAnimesCharactersPage = async ({ params }: ParamId) => {
           ))}
         </CharactersContainer>
       </AnimeContainer>
-    </Suspense>
+    </>
   );
 };
 
