@@ -7,20 +7,22 @@ import React from "react";
 const CharacterInfo = async ({ params }: ParamId) => {
   const { id } = params;
   const data: Characters[] = await fetchCharactersById(id);
-  const characters = data.map((character) => ({
-    name: character.name.userPreferred,
-    nativeName: character.name.native,
-    alternativeName: character.name.alternative,
-    age: character.age,
-    image: character.image.large,
-    gender: character.gender,
-    month: character.dateOfBirth.month,
-    day: character.dateOfBirth.day,
-    bloodType: character.bloodType,
-    description: character.description,
-  }));
+  const characters = Array.isArray(data)
+    ? data.map((character) => ({
+        name: character.name.userPreferred,
+        nativeName: character.name.native,
+        alternativeName: character.name.alternative,
+        age: character.age,
+        image: character.image.large,
+        gender: character.gender,
+        month: character.dateOfBirth.month,
+        day: character.dateOfBirth.day,
+        bloodType: character.bloodType,
+        description: character.description,
+      }))
+    : [];
 
-  const character = characters[0];
+  const character = characters[0] || [];
 
   return (
     <>

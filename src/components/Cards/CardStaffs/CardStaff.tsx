@@ -16,7 +16,7 @@ const CardStaff = ({ id, name, image, occupation }: StaffProps) => {
         <Image
           className="h-20 w-[60px] rounded-sm 2xl:h-[70px] 2xl:w-[55px] "
           src={image}
-          alt="Card-image"
+          alt="Card-image-staffs"
           width={50}
           height={60}
           priority={true}

@@ -12,40 +12,42 @@ import React from "react";
 const SubAnimesCharactersPage = async ({ params }: ParamId) => {
   const { id } = params;
   const data: Anime[] = await getAnimeById(id);
-  const animes = data.map((anime) => ({
-    title: anime.title.romaji,
-    description: anime.description,
-    image: anime.coverImage.extraLarge,
+  const animes = Array.isArray(data)
+    ? data.map((anime) => ({
+        title: anime.title.romaji,
+        description: anime.description,
+        image: anime.coverImage.extraLarge,
 
-    format: anime.format,
-    duration: anime.duration,
-    status: anime.status,
-    season: anime.season,
-    seasonYear: anime.seasonYear,
-    averageScore: anime.averageScore,
-    meanScore: anime.meanScore,
-    popularity: anime.popularity,
-    favourites: anime.favourites,
+        format: anime.format,
+        duration: anime.duration,
+        status: anime.status,
+        season: anime.season,
+        seasonYear: anime.seasonYear,
+        averageScore: anime.averageScore,
+        meanScore: anime.meanScore,
+        popularity: anime.popularity,
+        favourites: anime.favourites,
 
-    source: anime.source,
-    genres: anime.genres.map((genre) => genre),
+        source: anime.source,
+        genres: anime.genres.map((genre) => genre),
 
-    characters: anime.characters.edges.map((characters) => ({
-      id: characters.node.id,
-      name: characters.node.name.userPreferred,
-      image: characters.node.image.medium,
-      role: characters.role,
+        characters: anime.characters.edges.map((characters) => ({
+          id: characters.node.id,
+          name: characters.node.name.userPreferred,
+          image: characters.node.image.medium,
+          role: characters.role,
 
-      voices: characters.voiceActors.map((voice) => ({
-        id: voice.id,
-        name: voice.name.userPreferred,
-        image: voice.image.medium,
-        language: voice.languageV2,
-      })),
-    })),
-  }));
+          voices: characters.voiceActors.map((voice) => ({
+            id: voice.id,
+            name: voice.name.userPreferred,
+            image: voice.image.medium,
+            language: voice.languageV2,
+          })),
+        })),
+      }))
+    : [];
 
-  const anime = animes[0];
+  const anime = animes[0] || [];
 
   return (
     <>

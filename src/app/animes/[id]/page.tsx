@@ -19,59 +19,60 @@ import React from "react";
 const AnimeInfo = async ({ params }: ParamId) => {
   const { id } = params;
   const data: Anime[] = await getAnimeById(id);
-  const animes = data.map((anime) => ({
-    title: anime.title.romaji,
-    description: anime.description,
-    image: anime.coverImage.extraLarge,
-    trailer: anime.trailer?.id,
+  const animes = Array.isArray(data)
+    ? data.map((anime) => ({
+        title: anime.title.romaji,
+        description: anime.description,
+        image: anime.coverImage.extraLarge,
+        trailer: anime.trailer?.id,
 
-    format: anime.format,
-    duration: anime.duration,
-    status: anime.status,
-    season: anime.season,
-    seasonYear: anime.seasonYear,
-    averageScore: anime.averageScore,
-    meanScore: anime.meanScore,
-    popularity: anime.popularity,
-    favourites: anime.favourites,
+        format: anime.format,
+        duration: anime.duration,
+        status: anime.status,
+        season: anime.season,
+        seasonYear: anime.seasonYear,
+        averageScore: anime.averageScore,
+        meanScore: anime.meanScore,
+        popularity: anime.popularity,
+        favourites: anime.favourites,
 
-    source: anime.source,
-    genres: anime.genres.map((genre) => genre),
+        source: anime.source,
+        genres: anime.genres.map((genre) => genre),
 
-    characters: anime.characters.edges.map((characters) => ({
-      id: characters.node.id,
-      name: characters.node.name.userPreferred,
-      image: characters.node.image.medium,
-      role: characters.role,
+        characters: anime.characters.edges.map((characters) => ({
+          id: characters.node.id,
+          name: characters.node.name.userPreferred,
+          image: characters.node.image.medium,
+          role: characters.role,
 
-      voices: characters.voiceActors.map((voice) => ({
-        id: voice.id,
-        name: voice.name.userPreferred,
-        image: voice.image.medium,
-        language: voice.languageV2,
-      })),
-    })),
-    staffs: anime.staff.nodes.map((staff) => ({
-      id: staff.id,
-      name: staff.name.userPreferred,
-      image: staff.image.medium,
-      occupations: staff.primaryOccupations,
-    })),
+          voices: characters.voiceActors.map((voice) => ({
+            id: voice.id,
+            name: voice.name.userPreferred,
+            image: voice.image.medium,
+            language: voice.languageV2,
+          })),
+        })),
+        staffs: anime.staff.nodes.map((staff) => ({
+          id: staff.id,
+          name: staff.name.userPreferred,
+          image: staff.image.medium,
+          occupations: staff.primaryOccupations,
+        })),
 
-    recommendations: anime.recommendations.nodes.map((recommended) => ({
-      id: recommended.mediaRecommendation?.id,
-      title: recommended.mediaRecommendation?.title.romaji,
-      image: recommended.mediaRecommendation?.coverImage.large,
-    })),
-  }));
-
-  const anime = animes[0];
+        recommendations: anime.recommendations.nodes.map((recommended) => ({
+          id: recommended.mediaRecommendation?.id,
+          title: recommended.mediaRecommendation?.title.romaji,
+          image: recommended.mediaRecommendation?.coverImage.large,
+        })),
+      }))
+    : [];
+  const anime = animes[0] || [];
 
   return (
     <>
       <Header
         title={anime.title}
-        description={anime.description.replace(/<[^>]+>/g, "")}
+        description={anime.description?.replace(/<[^>]+>/g, "")}
         coverImage={anime.image}
       />
       <AnimeSideBar
@@ -89,10 +90,10 @@ const AnimeInfo = async ({ params }: ParamId) => {
       />
 
       <AnimeContainer>
-        <Description description={anime.description.replace(/<[^>]+>/g, "")} />
+        <Description description={anime.description?.replace(/<[^>]+>/g, "")} />
 
         <CharactersContainer id={params.id}>
-          {anime.characters.slice(0, 6).map((character) => (
+          {anime.characters?.slice(0, 6).map((character) => (
             <CardCharacters
               key={character.id}
               id={character.id}
@@ -105,7 +106,7 @@ const AnimeInfo = async ({ params }: ParamId) => {
         </CharactersContainer>
 
         <StaffContainer id={params.id}>
-          {anime.staffs.slice(0, 4).map((staff) => (
+          {anime.staffs?.slice(0, 4).map((staff) => (
             <CardStaff
               key={staff.id}
               id={staff.id}
@@ -120,7 +121,7 @@ const AnimeInfo = async ({ params }: ParamId) => {
 
         {anime.recommendations ? (
           <RecommendationsContainer>
-            {anime.recommendations.slice(0, 5).map((recommended) => (
+            {anime.recommendations?.slice(0, 5).map((recommended) => (
               <AnimeRecomendations
                 key={recommended.id}
                 id={recommended.id}

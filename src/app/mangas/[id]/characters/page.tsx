@@ -10,29 +10,31 @@ import React from "react";
 const SubMangasCharactersPage = async ({ params }: ParamId) => {
   const { id } = params;
   const data: Manga[] = await getMangaById(id);
-  const mangas = data.map((manga) => ({
-    title: manga.title.romaji,
-    image: manga.coverImage.large,
-    description: manga.description,
+  const mangas = Array.isArray(data)
+    ? data.map((manga) => ({
+        title: manga.title.romaji,
+        image: manga.coverImage.large,
+        description: manga.description,
 
-    format: manga.format,
-    status: manga.status,
-    averageScore: manga.averageScore,
-    meanScore: manga.meanScore,
-    popularity: manga.popularity,
-    favourites: manga.favourites,
-    genres: manga.genres.map((genre) => genre),
-    sources: manga.source,
+        format: manga.format,
+        status: manga.status,
+        averageScore: manga.averageScore,
+        meanScore: manga.meanScore,
+        popularity: manga.popularity,
+        favourites: manga.favourites,
+        genres: manga.genres.map((genre) => genre),
+        sources: manga.source,
 
-    characters: manga.characters.edges.map((character) => ({
-      id: character.node.id,
-      name: character.node.name.userPreferred,
-      image: character.node.image.medium,
-      role: character.role,
-    })),
-  }));
+        characters: manga.characters.edges.map((character) => ({
+          id: character.node.id,
+          name: character.node.name.userPreferred,
+          image: character.node.image.medium,
+          role: character.role,
+        })),
+      }))
+    : [];
 
-  const manga = mangas[0];
+  const manga = mangas[0] || [];
 
   return (
     <>

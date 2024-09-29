@@ -10,7 +10,7 @@ exports[`CardStaff component should match a snapshot 1`] = `
       href="/staffs/1"
     >
       <img
-        alt="Card-image"
+        alt="Card-image-staffs"
         class="h-20 w-[60px] rounded-sm 2xl:h-[70px] 2xl:w-[55px] "
         data-nimg="1"
         decoding="async"

@@ -6,7 +6,7 @@ const Trailer = ({ trailerId }: { trailerId: string }) => {
       <SubTitles>Trailer</SubTitles>
 
       <iframe
-        className=" w-[420px] h-[300px] p-10 md:w-[500px] md:h-[300px] md:p-4 "
+        className=" w-full h-[300px] p-6  md:w-[500px] md:h-[300px] md:p-4 "
         src={`https://www.youtube.com/embed/${trailerId}?enablejsapi=1&wmode=opaque&autoplay=0`}
         title="YouTube video player"
         allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
