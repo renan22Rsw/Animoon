@@ -89,7 +89,7 @@ const AnimeSideBarInfo = ({
     {
       id: 10,
       titles: "Genres",
-      infos: genres.join(", "),
+      infos: genres?.join(", "),
     },
 
     {

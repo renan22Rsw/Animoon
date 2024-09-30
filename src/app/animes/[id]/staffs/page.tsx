@@ -9,34 +9,37 @@ import StaffContainer from "@/components/Container/Staffs/StaffContainer";
 import CardStaff from "@/components/Cards/CardStaffs/CardStaff";
 
 const SubAnimeStaffssPage = async ({ params }: ParamId) => {
-  const data: Anime[] = await getAnimeById(params.id);
-  const animes = data.map((anime) => ({
-    title: anime.title.romaji,
-    description: anime.description,
-    image: anime.coverImage.large,
+  const { id } = params;
+  const data: Anime[] = await getAnimeById(id);
+  const animes = Array.isArray(data)
+    ? data.map((anime) => ({
+        title: anime.title.romaji,
+        description: anime.description,
+        image: anime.coverImage.extraLarge,
 
-    format: anime.format,
-    duration: anime.duration,
-    status: anime.status,
-    season: anime.season,
-    seasonYear: anime.seasonYear,
-    averageScore: anime.averageScore,
-    meanScore: anime.meanScore,
-    popularity: anime.popularity,
-    favourites: anime.favourites,
+        format: anime.format,
+        duration: anime.duration,
+        status: anime.status,
+        season: anime.season,
+        seasonYear: anime.seasonYear,
+        averageScore: anime.averageScore,
+        meanScore: anime.meanScore,
+        popularity: anime.popularity,
+        favourites: anime.favourites,
 
-    source: anime.source,
-    genres: anime.genres.map((genre) => genre),
+        source: anime.source,
+        genres: anime.genres.map((genre) => genre),
 
-    staffs: anime.staff.nodes.map((staff) => ({
-      id: staff.id,
-      name: staff.name.userPreferred,
-      image: staff.image.medium,
-      occupations: staff.primaryOccupations,
-    })),
-  }));
+        staffs: anime.staff.nodes.map((staff) => ({
+          id: staff.id,
+          name: staff.name.userPreferred,
+          image: staff.image.medium,
+          occupations: staff.primaryOccupations,
+        })),
+      }))
+    : [];
 
-  const anime = animes[0];
+  const anime = animes[0] || [];
 
   return (
     <>

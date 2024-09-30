@@ -4,46 +4,50 @@ import AnimeContainer from "@/components/Container/Anime/AnimeContainer";
 import CharactersContainer from "@/components/Container/Characters/CharactersContainer";
 import Header from "@/components/Header/MainHeader/Header";
 import AnimeSideBarInfo from "@/components/Infos/AnimeInfo/AnimeSideBarInfo";
+
 import { Anime } from "@/types/anime";
 
 import React from "react";
 
 const SubAnimesCharactersPage = async ({ params }: ParamId) => {
-  const data: Anime[] = await getAnimeById(params.id);
-  const animes = data.map((anime) => ({
-    title: anime.title.romaji,
-    description: anime.description,
-    image: anime.coverImage.large,
+  const { id } = params;
+  const data: Anime[] = await getAnimeById(id);
+  const animes = Array.isArray(data)
+    ? data.map((anime) => ({
+        title: anime.title.romaji,
+        description: anime.description,
+        image: anime.coverImage.extraLarge,
 
-    format: anime.format,
-    duration: anime.duration,
-    status: anime.status,
-    season: anime.season,
-    seasonYear: anime.seasonYear,
-    averageScore: anime.averageScore,
-    meanScore: anime.meanScore,
-    popularity: anime.popularity,
-    favourites: anime.favourites,
+        format: anime.format,
+        duration: anime.duration,
+        status: anime.status,
+        season: anime.season,
+        seasonYear: anime.seasonYear,
+        averageScore: anime.averageScore,
+        meanScore: anime.meanScore,
+        popularity: anime.popularity,
+        favourites: anime.favourites,
 
-    source: anime.source,
-    genres: anime.genres.map((genre) => genre),
+        source: anime.source,
+        genres: anime.genres.map((genre) => genre),
 
-    characters: anime.characters.edges.map((characters) => ({
-      id: characters.node.id,
-      name: characters.node.name.userPreferred,
-      image: characters.node.image.medium,
-      role: characters.role,
+        characters: anime.characters.edges.map((characters) => ({
+          id: characters.node.id,
+          name: characters.node.name.userPreferred,
+          image: characters.node.image.medium,
+          role: characters.role,
 
-      voices: characters.voiceActors.map((voice) => ({
-        id: voice.id,
-        name: voice.name.userPreferred,
-        image: voice.image.medium,
-        language: voice.languageV2,
-      })),
-    })),
-  }));
+          voices: characters.voiceActors.map((voice) => ({
+            id: voice.id,
+            name: voice.name.userPreferred,
+            image: voice.image.medium,
+            language: voice.languageV2,
+          })),
+        })),
+      }))
+    : [];
 
-  const anime = animes[0];
+  const anime = animes[0] || [];
 
   return (
     <>

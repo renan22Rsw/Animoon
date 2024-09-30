@@ -1,12 +1,13 @@
 "use client";
 
+import ApiNotWorking from "@/components/ApiNotWorking/ApiNotWorking";
 import MainPagesGrid from "@/components/Grids/MainPagesGrid";
 import Loading from "@/components/Loading/Loading";
 import PagesTitles from "@/components/Titles/PagesTitles";
 import useNextSeason from "@/hooks/AnimesHooks/NextSeasonAnimes/useNextSeasonAnimes";
 import React from "react";
 
-const UpComingAnimes = () => {
+const NextSeasonAnimes = () => {
   const { nextSeason, nextSeasonError, nextSeasonLoading } = useNextSeason();
 
   if (nextSeasonLoading) {
@@ -14,7 +15,7 @@ const UpComingAnimes = () => {
   }
 
   if (nextSeasonError) {
-    return <div>api is not working...</div>;
+    return <ApiNotWorking />;
   }
 
   const upcoming = nextSeason || [];
@@ -27,4 +28,4 @@ const UpComingAnimes = () => {
   );
 };
 
-export default UpComingAnimes;
+export default NextSeasonAnimes;

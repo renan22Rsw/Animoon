@@ -9,30 +9,33 @@ import { Manga } from "@/types/manga";
 import React from "react";
 
 const SubMangasStaffsPage = async ({ params }: ParamId) => {
-  const data: Manga[] = await getMangaById(params.id);
-  const mangas = data.map((manga) => ({
-    title: manga.title.romaji,
-    image: manga.coverImage.large,
-    description: manga.description,
+  const { id } = params;
+  const data: Manga[] = await getMangaById(id);
+  const mangas = Array.isArray(data)
+    ? data.map((manga) => ({
+        title: manga.title.romaji,
+        image: manga.coverImage.large,
+        description: manga.description,
 
-    format: manga.format,
-    status: manga.status,
-    averageScore: manga.averageScore,
-    meanScore: manga.meanScore,
-    popularity: manga.popularity,
-    favourites: manga.favourites,
-    genres: manga.genres.map((genre) => genre),
-    sources: manga.source,
+        format: manga.format,
+        status: manga.status,
+        averageScore: manga.averageScore,
+        meanScore: manga.meanScore,
+        popularity: manga.popularity,
+        favourites: manga.favourites,
+        genres: manga.genres.map((genre) => genre),
+        sources: manga.source,
 
-    staffs: manga.staff.nodes.map((staff) => ({
-      id: staff.id,
-      name: staff.name.userPreferred,
-      image: staff.image.medium,
-      occupation: staff.primaryOccupations,
-    })),
-  }));
+        staffs: manga.staff.nodes.map((staff) => ({
+          id: staff.id,
+          name: staff.name.userPreferred,
+          image: staff.image.medium,
+          occupation: staff.primaryOccupations,
+        })),
+      }))
+    : [];
 
-  const manga = mangas[0];
+  const manga = mangas[0] || [];
 
   return (
     <>
