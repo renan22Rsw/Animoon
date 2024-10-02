@@ -21,8 +21,8 @@ import Link from "next/link";
 
 const MangaPage = () => {
   const query = useSearchParams();
-  const parameterValue = query.get("search");
-  const genreParameter = query.get("genres");
+  const parameterValue = query?.get("search");
+  const genreParameter = query?.get("genres");
 
   const { seasonalMangas, seasonalMangasIsError, seasonalMangasIsLoading } =
     useSeasonalMangas();

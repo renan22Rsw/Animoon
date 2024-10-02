@@ -48,9 +48,7 @@ export const FETCH_TOP_MANGAS = gql`
         }
         chapters
         volumes
-        season
         status
-        seasonYear
         type
         favourites
         format

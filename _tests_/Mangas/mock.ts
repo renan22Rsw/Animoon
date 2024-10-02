@@ -6,6 +6,30 @@ export const mockMangas = [
   },
 ];
 
+export const mockTopMangas = [
+  {
+    id: 1,
+    title: {
+      romaji: "Mock Manga Titles",
+    },
+    coverImage: {
+      large: "https://example.com/mock-image.jpg",
+    },
+    rankings: [
+      {
+        id: 2001,
+      },
+    ],
+    chapters: 100,
+    volumes: 20,
+    status: "RELEASING",
+    type: "MANGA",
+    favourites: 10345,
+    format: "MANGA",
+    meanScore: 90,
+  },
+];
+
 export const mockMangaInfo = {
   title: { romaji: "Test Manga" },
   description: "Test description for manga",

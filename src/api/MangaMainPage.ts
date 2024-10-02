@@ -34,9 +34,7 @@ interface topMangas {
 
   chapters: number | null;
   volumes: number | null;
-  season: string;
   status: string;
-  seasonYear: number;
   meanScore: number;
   type: string;
   favourites: number;

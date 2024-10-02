@@ -12,7 +12,7 @@ import React from "react";
 
 const CharactersPage = () => {
   const query = useSearchParams();
-  const parameterValue = query.get("search");
+  const parameterValue = query?.get("search");
 
   const {
     characterBirthday,

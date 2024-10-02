@@ -10,10 +10,10 @@ export const topAnimesMock = [
   {
     id: 1,
     title: {
-      romaji: "Attack on Titan",
+      romaji: "Mock Anime Titles",
     },
     coverImage: {
-      large: "https://example.com/attack-on-titan-cover.jpg",
+      large: "https://example.com/mock-image.jpg",
     },
     rankings: [
       {

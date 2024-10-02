@@ -1,3 +1,15 @@
+export const mockCharacter = [
+  {
+    id: 1,
+    name: {
+      full: "Character Name 1",
+    },
+    image: {
+      large: "https://example.com/image1.jpg",
+    },
+  },
+];
+
 export const mockCharacterInfo = {
   id: 17,
   name: {

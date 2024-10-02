@@ -21,12 +21,6 @@ jest.mock("../../src/api/AnimeMainPage", () => ({
   fetchSearchAnimeByGenre: jest.fn(),
 }));
 
-jest.mock("next/navigation", () => ({
-  useRouter: jest.fn(),
-  useSearchParams: jest.fn(),
-  usePathname: jest.fn(),
-}));
-
 const client = new QueryClient({
   defaultOptions: {
     queries: {
@@ -36,19 +30,21 @@ const client = new QueryClient({
 });
 
 describe("AnimePage", () => {
-  afterEach(() => {
-    client.clear();
-    jest.clearAllMocks();
-  });
-
-  it("should render AnimePage datas", async () => {
+  beforeEach(() => {
     (fetchSeasonsAnimes as jest.Mock).mockResolvedValue(mockAnimes);
     (fetchNextSeason as jest.Mock).mockResolvedValue(mockAnimes);
     (fetchTopAnimes as jest.Mock).mockResolvedValue(topAnimesMock);
     (fetchResearchedAnimes as jest.Mock).mockResolvedValue(mockAnimes);
     (fetchSearchAnimeByGenre as jest.Mock).mockResolvedValue(mockAnimes);
     (fetchGenresAnimes as jest.Mock).mockResolvedValue(mockAnimes);
+  });
 
+  afterEach(() => {
+    client.clear();
+    jest.clearAllMocks();
+  });
+
+  it("should render AnimePage datas", async () => {
     render(
       <QueryClientProvider client={client}>
         <AnimePage />
@@ -61,17 +57,35 @@ describe("AnimePage", () => {
       const topTitles = screen.getAllByText("Top 10 Animes");
       expect(topTitles[0]).toBeInTheDocument();
       expect(topTitles[1]).toBeInTheDocument();
+
+      const animesTitles = screen.getAllByText("Anime Test");
+      expect(animesTitles[0]).toBeInTheDocument();
+      expect(animesTitles[1]).toBeInTheDocument();
+
+      const images = screen.getAllByRole("img");
+      expect(images[0]).toBeInTheDocument();
+      expect(images[1]).toBeInTheDocument();
+      expect(images[2]).toBeInTheDocument();
+      expect(images[3]).toBeInTheDocument();
+
+      //top-columns
+
+      const columnsTitles = screen.getAllByText("Mock Anime Titles");
+      expect(columnsTitles[0]).toBeInTheDocument();
+      expect(columnsTitles[1]).toBeInTheDocument();
+
+      expect(screen.getByAltText("Image-Column")).toBeInTheDocument();
+      expect(screen.getByText("1°")).toBeInTheDocument();
+      expect(screen.getByText("TV")).toBeInTheDocument();
+      expect(screen.getByText("ANIME")).toBeInTheDocument();
+      expect(screen.getByText("WINTER 2013")).toBeInTheDocument();
+      expect(screen.getByText("150000")).toBeInTheDocument();
+      expect(screen.getByText("25 ep")).toBeInTheDocument();
+      expect(screen.getByText("FINISHED")).toBeInTheDocument();
     });
   });
 
   it("should return loading component", async () => {
-    (fetchSeasonsAnimes as jest.Mock).mockResolvedValue(mockAnimes);
-    (fetchNextSeason as jest.Mock).mockResolvedValue(mockAnimes);
-    (fetchTopAnimes as jest.Mock).mockResolvedValue(topAnimesMock);
-    (fetchResearchedAnimes as jest.Mock).mockResolvedValue(mockAnimes);
-    (fetchSearchAnimeByGenre as jest.Mock).mockResolvedValue(mockAnimes);
-    (fetchGenresAnimes as jest.Mock).mockResolvedValue(mockAnimes);
-
     render(
       <QueryClientProvider client={client}>
         <AnimePage />
