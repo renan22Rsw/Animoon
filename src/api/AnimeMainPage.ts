@@ -1,4 +1,3 @@
-import { gql } from "@apollo/client";
 import { client } from "@/app/ApoloClient";
 import {
   FETCH_GENRES_ANIMES,
@@ -9,40 +8,12 @@ import {
   FETCH_TOP_ANIMES,
 } from "@/queries/Animes/AnimeMainPage";
 
-interface Animes {
-  id: number;
-  title: {
-    romaji: string;
-  };
-  coverImage: {
-    large: string;
-  };
-
-  description: string;
-}
+import { AnimePage, topAnimes } from "@/types/anime";
 
 interface AnimeData {
   Page: {
-    media: Animes[];
+    media: AnimePage[];
   };
-}
-
-interface topAnimes {
-  id: number;
-  title: {
-    romaji: string;
-  };
-  coverImage: {
-    large: string;
-  };
-
-  episodes: number;
-  season: string;
-  status: string;
-  seasonYear: number;
-  type: string;
-  favourites: number;
-  format: string;
 }
 
 interface topAnimesResult {
@@ -51,14 +22,14 @@ interface topAnimesResult {
   };
 }
 
-export const fetchSeasonsAnimes = async (): Promise<Animes[]> => {
+export const fetchSeasonsAnimes = async (): Promise<AnimePage[]> => {
   const { data } = await client.query<AnimeData>({
     query: FETCH_SEASONAL_ANIMES,
   });
   return data.Page.media;
 };
 
-export const fetchNextSeason = async (): Promise<Animes[]> => {
+export const fetchNextSeason = async (): Promise<AnimePage[]> => {
   const { data } = await client.query<AnimeData>({
     query: FETCH_NEXT_SEASON_ANIMES,
   });
@@ -75,7 +46,7 @@ export const fetchTopAnimes = async (): Promise<topAnimes[]> => {
 
 export const fetchResearchedAnimes = async (
   parameter: string | null
-): Promise<Animes[]> => {
+): Promise<AnimePage[]> => {
   const { data } = await client.query<AnimeData>({
     query: FETCH_RESEARCHED_ANIMES,
     variables: { search: parameter },
@@ -85,7 +56,7 @@ export const fetchResearchedAnimes = async (
 
 export const fetchGenresAnimes = async (
   parameter: string | null
-): Promise<Animes[]> => {
+): Promise<AnimePage[]> => {
   const { data } = await client.query<AnimeData>({
     query: FETCH_GENRES_ANIMES,
     variables: { genre: parameter },
@@ -96,7 +67,7 @@ export const fetchGenresAnimes = async (
 export const fetchSearchAnimeByGenre = async (
   search: string | null,
   genre: string | null
-): Promise<Animes[]> => {
+): Promise<AnimePage[]> => {
   const { data } = await client.query<AnimeData>({
     query: FETCH_SEARCH_GENRES_ANIMES,
     variables: { search: search, genre: genre },

@@ -1,4 +1,14 @@
-export interface Characters {
+export interface charactersPages {
+  id: number;
+  name: {
+    full: string;
+  };
+  image: {
+    large: string;
+  };
+}
+
+export interface characterInfo {
   id: number;
   name: {
     userPreferred: string;

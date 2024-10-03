@@ -1,4 +1,32 @@
-export interface Manga {
+export interface MangaPages {
+  id: number;
+  title: {
+    romaji: string;
+  };
+  coverImage: {
+    large: string;
+  };
+}
+
+export interface topMangas {
+  id: number;
+  title: {
+    romaji: string;
+  };
+  coverImage: {
+    large: string;
+  };
+
+  chapters: number | null;
+  volumes: number | null;
+  status: string;
+  meanScore: number;
+  type: string;
+  favourites: number;
+  format: string;
+}
+
+export interface MangaInfo {
   title: {
     romaji: string;
   };

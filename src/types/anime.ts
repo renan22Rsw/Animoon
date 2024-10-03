@@ -1,3 +1,33 @@
+export interface AnimePage {
+  id: number;
+  title: {
+    romaji: string;
+  };
+  coverImage: {
+    large: string;
+  };
+
+  description: string;
+}
+
+export interface topAnimes {
+  id: number;
+  title: {
+    romaji: string;
+  };
+  coverImage: {
+    large: string;
+  };
+
+  episodes: number;
+  season: string;
+  status: string;
+  seasonYear: number;
+  type: string;
+  favourites: number;
+  format: string;
+}
+
 interface AnimeCharacter {
   role: string;
   voiceActors: AnimeVoices[];
@@ -47,7 +77,7 @@ interface AnimeRecommendations {
   };
 }
 
-export interface Anime {
+export interface AnimeInfo {
   title: {
     romaji: string;
   };

@@ -7,38 +7,12 @@ import {
   FETCH_TOP_MANGAS,
 } from "@/queries/Mangas/MangaMainPage";
 
-export interface Mangas {
-  id: number;
-  title: {
-    romaji: string;
-  };
-  coverImage: {
-    large: string;
-  };
-}
+import { MangaPages, topMangas } from "@/types/manga";
 
 interface MangaData {
   Page: {
-    media: Mangas[];
+    media: MangaPages[];
   };
-}
-
-interface topMangas {
-  id: number;
-  title: {
-    romaji: string;
-  };
-  coverImage: {
-    large: string;
-  };
-
-  chapters: number | null;
-  volumes: number | null;
-  status: string;
-  meanScore: number;
-  type: string;
-  favourites: number;
-  format: string;
 }
 
 interface topMangasResult {
@@ -47,7 +21,7 @@ interface topMangasResult {
   };
 }
 
-export const fetchSeasonsMangas = async (): Promise<Mangas[]> => {
+export const fetchSeasonsMangas = async (): Promise<MangaPages[]> => {
   const { data } = await client.query<MangaData>({
     query: FETCH_SEASONAL_MANGAS,
   });
@@ -55,7 +29,7 @@ export const fetchSeasonsMangas = async (): Promise<Mangas[]> => {
   return data.Page.media;
 };
 
-export const fetchPopularMangas = async (): Promise<Mangas[]> => {
+export const fetchPopularMangas = async (): Promise<MangaPages[]> => {
   const { data } = await client.query<MangaData>({
     query: FETCH_POPULAR_MANGAS,
   });
@@ -72,7 +46,7 @@ export const fetchTopMangas = async (): Promise<topMangas[]> => {
 
 export const fetchResearchedMangas = async (
   parameter: string | null
-): Promise<Mangas[]> => {
+): Promise<MangaPages[]> => {
   const { data } = await client.query<MangaData>({
     query: FETCH_RESEARCHED_MANGAS,
     variables: { search: parameter },
@@ -82,7 +56,7 @@ export const fetchResearchedMangas = async (
 
 export const fetchGenresMangas = async (
   parameter: string | null
-): Promise<Mangas[]> => {
+): Promise<MangaPages[]> => {
   const { data } = await client.query<MangaData>({
     query: FETCH_GENRES_MANGAS,
 
@@ -94,7 +68,7 @@ export const fetchGenresMangas = async (
 export const fetchSearchMangasByGenre = async (
   search: string | null,
   genre: string | null
-): Promise<Mangas[]> => {
+): Promise<MangaPages[]> => {
   const { data } = await client.query<MangaData>({
     query: FETCH_GENRES_MANGAS,
     variables: { genre: genre, search: search },
