@@ -1,16 +1,16 @@
 import { getAnimeById } from "@/api/AnimeInfoPage";
-import { Anime } from "@/types/anime";
+import { AnimeInfos } from "@/types/anime";
 import React from "react";
 
 import Header from "@/components/Header/MainHeader/Header";
 import AnimeSideBarInfo from "@/components/Infos/AnimeInfo/AnimeSideBarInfo";
-import AnimeContainer from "@/components/Container/Anime/AnimeContainer";
+import Container from "@/components/Container/Anime/AnimeContainer";
 import StaffContainer from "@/components/Container/Staffs/StaffContainer";
 import CardStaff from "@/components/Cards/CardStaffs/CardStaff";
 
 const SubAnimeStaffssPage = async ({ params }: ParamId) => {
   const { id } = params;
-  const data: Anime[] = await getAnimeById(id);
+  const data: AnimeInfos[] = await getAnimeById(id);
   const animes = Array.isArray(data)
     ? data.map((anime) => ({
         title: anime.title.romaji,
@@ -63,7 +63,7 @@ const SubAnimeStaffssPage = async ({ params }: ParamId) => {
         seasonYear={anime.seasonYear}
       />
 
-      <AnimeContainer>
+      <Container>
         <StaffContainer id={params.id}>
           {animes[0].staffs.map((staff) => (
             <CardStaff
@@ -75,7 +75,7 @@ const SubAnimeStaffssPage = async ({ params }: ParamId) => {
             />
           ))}
         </StaffContainer>
-      </AnimeContainer>
+      </Container>
     </>
   );
 };

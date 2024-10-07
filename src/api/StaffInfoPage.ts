@@ -1,14 +1,14 @@
 import { client } from "@/app/ApoloClient";
 import { FETCH_STAFF_BY_ID } from "@/queries/Staffs/StaffInfoPage";
-import { Staffs } from "@/types/staff";
+import { StaffsInfos } from "@/types/staff";
 
 interface StaffsData {
   Page: {
-    staff: Staffs[];
+    staff: StaffsInfos[];
   };
 }
 
-export const fetchStaffsById = async (id: number): Promise<Staffs[]> => {
+export const fetchStaffsById = async (id: number): Promise<StaffsInfos[]> => {
   const { data } = await client.query<StaffsData>({
     query: FETCH_STAFF_BY_ID,
 

@@ -1,14 +1,14 @@
 import { client } from "@/app/ApoloClient";
 import { FETCH_MANGAS_BY_ID } from "@/queries/Mangas/MangasInfoPage";
-import { MangaInfo } from "@/types/manga";
+import { MangaInfos } from "@/types/manga";
 
 interface MangaByidData {
   Page: {
-    media: MangaInfo[];
+    media: MangaInfos[];
   };
 }
 
-export const getMangaById = async (id: number): Promise<MangaInfo[]> => {
+export const getMangaById = async (id: number): Promise<MangaInfos[]> => {
   const { data } = await client.query<MangaByidData>({
     query: FETCH_MANGAS_BY_ID,
     variables: { id },

@@ -1,4 +1,4 @@
-export interface Staffs {
+export interface StaffsInfos {
   id: number;
   name: {
     full: string;

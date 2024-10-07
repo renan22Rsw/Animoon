@@ -8,11 +8,11 @@ import {
   FETCH_TOP_ANIMES,
 } from "@/queries/Animes/AnimeMainPage";
 
-import { AnimePage, topAnimes } from "@/types/anime";
+import { AnimePages, topAnimes } from "@/types/anime";
 
 interface AnimeData {
   Page: {
-    media: AnimePage[];
+    media: AnimePages[];
   };
 }
 
@@ -22,14 +22,14 @@ interface topAnimesResult {
   };
 }
 
-export const fetchSeasonsAnimes = async (): Promise<AnimePage[]> => {
+export const fetchSeasonsAnimes = async (): Promise<AnimePages[]> => {
   const { data } = await client.query<AnimeData>({
     query: FETCH_SEASONAL_ANIMES,
   });
   return data.Page.media;
 };
 
-export const fetchNextSeason = async (): Promise<AnimePage[]> => {
+export const fetchNextSeason = async (): Promise<AnimePages[]> => {
   const { data } = await client.query<AnimeData>({
     query: FETCH_NEXT_SEASON_ANIMES,
   });
@@ -46,7 +46,7 @@ export const fetchTopAnimes = async (): Promise<topAnimes[]> => {
 
 export const fetchResearchedAnimes = async (
   parameter: string | null
-): Promise<AnimePage[]> => {
+): Promise<AnimePages[]> => {
   const { data } = await client.query<AnimeData>({
     query: FETCH_RESEARCHED_ANIMES,
     variables: { search: parameter },
@@ -56,7 +56,7 @@ export const fetchResearchedAnimes = async (
 
 export const fetchGenresAnimes = async (
   parameter: string | null
-): Promise<AnimePage[]> => {
+): Promise<AnimePages[]> => {
   const { data } = await client.query<AnimeData>({
     query: FETCH_GENRES_ANIMES,
     variables: { genre: parameter },
@@ -67,7 +67,7 @@ export const fetchGenresAnimes = async (
 export const fetchSearchAnimeByGenre = async (
   search: string | null,
   genre: string | null
-): Promise<AnimePage[]> => {
+): Promise<AnimePages[]> => {
   const { data } = await client.query<AnimeData>({
     query: FETCH_SEARCH_GENRES_ANIMES,
     variables: { search: search, genre: genre },

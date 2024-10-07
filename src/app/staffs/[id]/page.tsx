@@ -1,11 +1,11 @@
 import { fetchStaffsById } from "@/api/StaffInfoPage";
 import SubHeader from "@/components/Header/SubHeader/SubPageHeader";
-import { Staffs } from "@/types/staff";
+import { StaffsInfos } from "@/types/staff";
 import React from "react";
 
 const StaffInfo = async ({ params }: ParamId) => {
   const { id } = params;
-  const data: Staffs[] = await fetchStaffsById(id);
+  const data: StaffsInfos[] = await fetchStaffsById(id);
   const staffs = Array.isArray(data)
     ? data.map((staff) => ({
         name: staff.name.full,

@@ -1,7 +1,7 @@
 import { getMangaById } from "@/api/MangaInfoPage";
 import CardCharacters from "@/components/Cards/CardCharacters/CardCharacters";
 import CardStaff from "@/components/Cards/CardStaffs/CardStaff";
-import AnimeContainer from "@/components/Container/Anime/AnimeContainer";
+import Container from "@/components/Container/Anime/AnimeContainer";
 import CharactersContainer from "@/components/Container/Characters/CharactersContainer";
 import RecommendationsContainer from "@/components/Container/Recomendations/RecommendationsContainer";
 import StaffContainer from "@/components/Container/Staffs/StaffContainer";
@@ -11,12 +11,12 @@ import Header from "@/components/Header/MainHeader/Header";
 import MangaSideBarInfo from "@/components/Infos/MangaInfo/MangaSideBarInfo";
 import MangaRecomendations from "@/components/Recomendations/Mangas/MangaRecomendations";
 
-import { Manga } from "@/types/manga";
+import { MangaInfos } from "@/types/manga";
 import React from "react";
 
 const MangaInfo = async ({ params }: ParamId) => {
   const { id } = params;
-  const data: Manga[] = await getMangaById(id);
+  const data: MangaInfos[] = await getMangaById(id);
   const mangas = Array.isArray(data)
     ? data.map((manga) => ({
         title: manga.title.romaji,
@@ -77,7 +77,7 @@ const MangaInfo = async ({ params }: ParamId) => {
         source={manga.sources}
       />
 
-      <AnimeContainer>
+      <Container>
         <Description description={manga.description?.replace(/<[^>]+>/g, "")} />
         <CharactersContainer id={params.id}>
           {manga.characters?.slice(0, 6).map((character) => (
@@ -116,7 +116,7 @@ const MangaInfo = async ({ params }: ParamId) => {
             />
           ))}
         </RecommendationsContainer>
-      </AnimeContainer>
+      </Container>
     </>
   );
 };

@@ -1,17 +1,17 @@
 import { getAnimeById } from "@/api/AnimeInfoPage";
 import CardCharacters from "@/components/Cards/CardCharacters/CardCharacters";
-import AnimeContainer from "@/components/Container/Anime/AnimeContainer";
+import Container from "@/components/Container/Anime/AnimeContainer";
 import CharactersContainer from "@/components/Container/Characters/CharactersContainer";
 import Header from "@/components/Header/MainHeader/Header";
 import AnimeSideBarInfo from "@/components/Infos/AnimeInfo/AnimeSideBarInfo";
 
-import { Anime } from "@/types/anime";
+import { AnimeInfos } from "@/types/anime";
 
 import React from "react";
 
 const SubAnimesCharactersPage = async ({ params }: ParamId) => {
   const { id } = params;
-  const data: Anime[] = await getAnimeById(id);
+  const data: AnimeInfos[] = await getAnimeById(id);
   const animes = Array.isArray(data)
     ? data.map((anime) => ({
         title: anime.title.romaji,
@@ -71,7 +71,7 @@ const SubAnimesCharactersPage = async ({ params }: ParamId) => {
         seasonYear={anime.seasonYear}
       />
 
-      <AnimeContainer>
+      <Container>
         <CharactersContainer id={params.id}>
           {anime.characters.map((character) => (
             <CardCharacters
@@ -84,7 +84,7 @@ const SubAnimesCharactersPage = async ({ params }: ParamId) => {
             />
           ))}
         </CharactersContainer>
-      </AnimeContainer>
+      </Container>
     </>
   );
 };

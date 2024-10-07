@@ -1,4 +1,4 @@
-export interface charactersPages {
+export interface CharactersPages {
   id: number;
   name: {
     full: string;
@@ -8,7 +8,7 @@ export interface charactersPages {
   };
 }
 
-export interface characterInfo {
+export interface CharacterInfos {
   id: number;
   name: {
     userPreferred: string;

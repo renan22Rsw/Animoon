@@ -1,12 +1,12 @@
 import { fetchCharactersById } from "@/api/CharacterInfoPage";
 import SubPageHeader from "@/components/Header/SubHeader/SubPageHeader";
 
-import { Characters } from "@/types/character";
+import { CharacterInfos } from "@/types/character";
 import React from "react";
 
 const CharacterInfo = async ({ params }: ParamId) => {
   const { id } = params;
-  const data: Characters[] = await fetchCharactersById(id);
+  const data: CharacterInfos[] = await fetchCharactersById(id);
   const characters = Array.isArray(data)
     ? data.map((character) => ({
         name: character.name.userPreferred,

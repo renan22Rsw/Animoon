@@ -26,7 +26,7 @@ export interface topMangas {
   format: string;
 }
 
-export interface MangaInfo {
+export interface MangaInfos {
   title: {
     romaji: string;
   };

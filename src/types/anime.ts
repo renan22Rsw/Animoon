@@ -1,4 +1,4 @@
-export interface AnimePage {
+export interface AnimePages {
   id: number;
   title: {
     romaji: string;
@@ -77,7 +77,7 @@ interface AnimeRecommendations {
   };
 }
 
-export interface AnimeInfo {
+export interface AnimeInfos {
   title: {
     romaji: string;
   };

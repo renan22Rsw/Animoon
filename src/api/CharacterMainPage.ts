@@ -5,16 +5,16 @@ import {
   FETCH_RESEARCHED_CHARACTERS,
 } from "@/queries/Characters/CharacterMainPage";
 
-import { charactersPages } from "@/types/character";
+import { CharactersPages } from "@/types/character";
 
 interface CharactersData {
   Page: {
-    characters: charactersPages[];
+    characters: CharactersPages[];
   };
 }
 
 export const fetchCharactersBirthdays = async (): Promise<
-  charactersPages[]
+  CharactersPages[]
 > => {
   const { data } = await client.query<CharactersData>({
     query: FETCH_CHARACTERS_BIRTHDAYS,
@@ -23,7 +23,7 @@ export const fetchCharactersBirthdays = async (): Promise<
 };
 
 export const fetchMostFavoritedCharacters = async (): Promise<
-  charactersPages[]
+  CharactersPages[]
 > => {
   const { data } = await client.query<CharactersData>({
     query: FETCH_MOST_FAVORITES_CHARACTERS,
@@ -33,7 +33,7 @@ export const fetchMostFavoritedCharacters = async (): Promise<
 
 export const fetchResearchedCharacters = async (
   parameter: string | null
-): Promise<charactersPages[]> => {
+): Promise<CharactersPages[]> => {
   const { data } = await client.query<CharactersData>({
     query: FETCH_RESEARCHED_CHARACTERS,
     variables: { search: parameter },

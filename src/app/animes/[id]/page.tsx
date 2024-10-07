@@ -2,7 +2,7 @@ import { getAnimeById } from "@/api/AnimeInfoPage";
 
 import CardCharacters from "@/components/Cards/CardCharacters/CardCharacters";
 import CardStaff from "@/components/Cards/CardStaffs/CardStaff";
-import AnimeContainer from "@/components/Container/Anime/AnimeContainer";
+import Container from "@/components/Container/Anime/AnimeContainer";
 import CharactersContainer from "@/components/Container/Characters/CharactersContainer";
 import RecommendationsContainer from "@/components/Container/Recomendations/RecommendationsContainer";
 import StaffContainer from "@/components/Container/Staffs/StaffContainer";
@@ -12,13 +12,13 @@ import Header from "@/components/Header/MainHeader/Header";
 import AnimeSideBar from "@/components/Infos/AnimeInfo/AnimeSideBarInfo";
 import AnimeRecomendations from "@/components/Recomendations/Animes/AnimeRecomendations";
 
-import { Anime } from "@/types/anime";
+import { AnimeInfos } from "@/types/anime";
 
 import React from "react";
 
 const AnimeInfo = async ({ params }: ParamId) => {
   const { id } = params;
-  const data: Anime[] = await getAnimeById(id);
+  const data: AnimeInfos[] = await getAnimeById(id);
   const animes = Array.isArray(data)
     ? data.map((anime) => ({
         title: anime.title.romaji,
@@ -89,7 +89,7 @@ const AnimeInfo = async ({ params }: ParamId) => {
         seasonYear={anime.seasonYear}
       />
 
-      <AnimeContainer>
+      <Container>
         <Description description={anime.description?.replace(/<[^>]+>/g, "")} />
 
         <CharactersContainer id={params.id}>
@@ -133,7 +133,7 @@ const AnimeInfo = async ({ params }: ParamId) => {
         ) : (
           ""
         )}
-      </AnimeContainer>
+      </Container>
     </>
   );
 };
