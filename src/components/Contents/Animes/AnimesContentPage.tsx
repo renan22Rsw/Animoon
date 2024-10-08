@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 
 import useSeasonalAnimes from "@/hooks/AnimesHooks/SeasonalAnimes/useSeasonalAnimes";
 import useTopAnimes from "@/hooks/AnimesHooks/TopAnimes/useTopAnimes";
