@@ -1,14 +1,11 @@
-"use client";
+import React, { Suspense } from "react";
+import Loading from "@/components/Loading/Loading";
+import SearchContent from "@/components/Contents/Search/SearchContent";
 
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
-
-const Search = () => {
-  const router = useRouter();
-
-  useEffect(() => {
-    router.push("/search/animes");
-  }, [router]);
-};
-
-export default Search;
+export default function Search() {
+  return (
+    <Suspense fallback={<Loading />}>
+      <SearchContent />
+    </Suspense>
+  );
+}
