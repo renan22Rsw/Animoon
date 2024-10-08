@@ -3,7 +3,7 @@
 exports[`MainPagesGrid component should match a snapshot 1`] = `
 <div>
   <div
-    class="grid grid-cols-3 md:mx-10 md:grid-cols-3 lg:grid-cols-6 lg:text-center "
+    class="grid grid-cols-3 md:ml-14 md:grid-cols-3 lg:grid-cols-6 lg:text-center "
   >
     <div
       class=" py-2 px-1 "
