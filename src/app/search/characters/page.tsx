@@ -2,12 +2,12 @@
 
 import React, { Suspense } from "react";
 import Loading from "@/components/Loading/Loading";
-import CharactersPage from "@/components/Contents/Characters/CharactersPageContent";
+import CharactersPageContent from "@/components/Contents/Characters/CharactersPageContent";
 
-export default function CharactersPageContent() {
+export default function CharactersPage() {
   return (
     <Suspense fallback={<Loading />}>
-      <CharactersPage />
+      <CharactersPageContent />
     </Suspense>
   );
 }

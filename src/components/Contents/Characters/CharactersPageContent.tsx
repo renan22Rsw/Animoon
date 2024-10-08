@@ -8,7 +8,7 @@ import useResearchedCharacter from "@/hooks/CharactersHooks/ResearchedCharacters
 import { useSearchParams } from "next/navigation";
 import React from "react";
 
-const CharactersPage = () => {
+const CharactersPageContent = () => {
   const query = useSearchParams();
   const parameterValue = query?.get("search");
 
@@ -70,4 +70,4 @@ const CharactersPage = () => {
   );
 };
 
-export default CharactersPage;
+export default CharactersPageContent;
