@@ -1,5 +1,3 @@
-"use client";
-
 import ApiNotWorking from "@/components/ApiNotWorking/ApiNotWorking";
 import MainPagesGrid from "@/components/Grids/MainPagesGrid";
 import Loading from "@/components/Loading/Loading";
