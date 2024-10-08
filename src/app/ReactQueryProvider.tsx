@@ -1,7 +1,8 @@
 "use client";
 
+import Loading from "@/components/Loading/Loading";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactNode } from "react";
+import { ReactNode, Suspense } from "react";
 
 interface ReactQueryProviderProps {
   children: ReactNode;
@@ -11,7 +12,9 @@ const queryClient = new QueryClient();
 
 const ReactQueryProvider = ({ children }: ReactQueryProviderProps) => {
   return (
-    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    <Suspense fallback={<Loading />}>
+      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    </Suspense>
   );
 };
 
