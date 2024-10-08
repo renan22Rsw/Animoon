@@ -3,6 +3,8 @@
 import InputSearch from "@/components/InputSearch/InputSearch";
 import ReactQueryProvider from "../ReactQueryProvider";
 import { usePathname } from "next/navigation";
+import { Suspense } from "react";
+import Loading from "@/components/Loading/Loading";
 
 export default function RootLayout({
   children,
@@ -17,7 +19,9 @@ export default function RootLayout({
       <div className=" px-20 h-[100px] justify-center flex items-center">
         {shouldNotRenderInputSearch > 18 ? "" : <InputSearch />}
       </div>
-      <ReactQueryProvider>{children}</ReactQueryProvider>
+      <Suspense fallback={<Loading />}>
+        <ReactQueryProvider>{children}</ReactQueryProvider>
+      </Suspense>
     </div>
   );
 }
