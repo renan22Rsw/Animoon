@@ -1,31 +1,12 @@
 "use client";
-
-import ApiNotWorking from "@/components/ApiNotWorking/ApiNotWorking";
-import MainPagesGrid from "@/components/Grids/MainPagesGrid";
+import React, { Suspense } from "react";
 import Loading from "@/components/Loading/Loading";
-import PagesTitles from "@/components/Titles/PagesTitles";
-import useTopMangas from "@/hooks/MangasHooks/TopMangas/useTopMangas";
-import React from "react";
+import Top50AnimesContent from "@/components/Contents/Animes/Top50Content";
 
-const Top50Mangas = () => {
-  const { topMangas, topMangasIsError, topMangasIsLoading } = useTopMangas();
-
-  if (topMangasIsLoading) {
-    return <Loading />;
-  }
-
-  if (topMangasIsError) {
-    return <ApiNotWorking />;
-  }
-
-  const top = topMangas || [];
-
+export default function Top50Mangas() {
   return (
-    <>
-      <PagesTitles>Top 50 Mangas</PagesTitles>
-      <MainPagesGrid datas={top} />
-    </>
+    <Suspense fallback={<Loading />}>
+      <Top50AnimesContent />
+    </Suspense>
   );
-};
-
-export default Top50Mangas;
+}

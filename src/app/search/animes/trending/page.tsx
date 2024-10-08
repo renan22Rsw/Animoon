@@ -1,32 +1,13 @@
 "use client";
 
-import ApiNotWorking from "@/components/ApiNotWorking/ApiNotWorking";
-import MainPagesGrid from "@/components/Grids/MainPagesGrid";
+import React, { Suspense } from "react";
 import Loading from "@/components/Loading/Loading";
-import PagesTitles from "@/components/Titles/PagesTitles";
-import useSeasonalAnimes from "@/hooks/AnimesHooks/SeasonalAnimes/useSeasonalAnimes";
-import React from "react";
+import TrendingAnimeContent from "@/components/Contents/Animes/TrendingAnimesContent";
 
-const TrendingAnimes = () => {
-  const { seasonalAnime, seasonalError, seasonalIsloading } =
-    useSeasonalAnimes();
-
-  if (seasonalIsloading) {
-    return <Loading />;
-  }
-
-  if (seasonalError) {
-    return <ApiNotWorking />;
-  }
-
-  const trending = seasonalAnime || [];
-
+export default function TrendingAnimes() {
   return (
-    <>
-      <PagesTitles>Trending Animes</PagesTitles>
-      <MainPagesGrid datas={trending} />
-    </>
+    <Suspense fallback={<Loading />}>
+      <TrendingAnimeContent />
+    </Suspense>
   );
-};
-
-export default TrendingAnimes;
+}

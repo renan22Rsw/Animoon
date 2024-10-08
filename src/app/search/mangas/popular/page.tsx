@@ -1,32 +1,13 @@
 "use client";
 
-import MainPagesGrid from "@/components/Grids/MainPagesGrid";
+import React, { Suspense } from "react";
 import Loading from "@/components/Loading/Loading";
-import PagesTitles from "@/components/Titles/PagesTitles";
-import React from "react";
-import useAllTimePopular from "@/hooks/MangasHooks/PopularMangas/usePopularMangas";
-import ApiNotWorking from "@/components/ApiNotWorking/ApiNotWorking";
+import AllTimePopularContent from "@/components/Contents/Mangas/PopularMangasContent";
 
-const AllTimePopular = () => {
-  const { popularMangas, popularMangasIsError, popularMangasIsLoading } =
-    useAllTimePopular();
-
-  if (popularMangasIsLoading) {
-    return <Loading />;
-  }
-
-  if (popularMangasIsError) {
-    return <ApiNotWorking />;
-  }
-
-  const popular = popularMangas || [];
-
+export default function AllTimePopular() {
   return (
-    <>
-      <PagesTitles>All Time Popular</PagesTitles>
-      <MainPagesGrid datas={popular} />
-    </>
+    <Suspense fallback={<Loading />}>
+      <AllTimePopularContent />
+    </Suspense>
   );
-};
-
-export default AllTimePopular;
+}

@@ -1,9 +1,9 @@
 import { screen, renderHook, waitFor, render } from "@testing-library/react";
 import { fetchResearchedAnimes } from "../../../api/AnimeMainPage";
-import { useResearchedAnimes } from "./useResearchedAnimes";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { mock } from "@/hooks/AnimesHooks/mock";
 import { ReactNode } from "react";
+import useResearchedAnimes from "./useResearchedAnimes";
 
 jest.mock("../../../api/AnimeMainPage", () => ({
   fetchResearchedAnimes: jest.fn(),

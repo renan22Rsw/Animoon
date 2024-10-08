@@ -3,7 +3,7 @@ import TrendingAnimes from "@/app/search/animes/trending/page";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { render, screen, waitFor } from "@testing-library/react";
 import { mockAnimes } from "./mock";
-import NextSeasonAnimes from "@/app/search/animes/next_season/page";
+import NextSeasonAnimes from "@/components/Contents/Animes/NextSeasonsContent";
 
 jest.mock("../../src/api/AnimeMainPage", () => ({
   fetchNextSeason: jest.fn(),

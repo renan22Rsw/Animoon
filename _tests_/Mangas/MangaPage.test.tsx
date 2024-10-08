@@ -9,7 +9,7 @@ import {
 import { mockMangas, mockTopMangas } from "./mock";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { render, screen, waitFor } from "@testing-library/react";
-import MangaPage from "@/app/search/mangas/page";
+import MangaPage from "@/components/Contents/Mangas/MangasContentPage";
 
 jest.mock("../../src/api/MangaMainPage", () => ({
   fetchSeasonsMangas: jest.fn(),

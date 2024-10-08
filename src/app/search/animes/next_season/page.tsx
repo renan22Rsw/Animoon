@@ -1,31 +1,13 @@
 "use client";
 
-import ApiNotWorking from "@/components/ApiNotWorking/ApiNotWorking";
-import MainPagesGrid from "@/components/Grids/MainPagesGrid";
+import React, { Suspense } from "react";
 import Loading from "@/components/Loading/Loading";
-import PagesTitles from "@/components/Titles/PagesTitles";
-import useNextSeason from "@/hooks/AnimesHooks/NextSeasonAnimes/useNextSeasonAnimes";
-import React from "react";
+import NextSeasonAnimesContent from "@/components/Contents/Animes/NextSeasonsContent";
 
-const NextSeasonAnimes = () => {
-  const { nextSeason, nextSeasonError, nextSeasonLoading } = useNextSeason();
-
-  if (nextSeasonLoading) {
-    return <Loading />;
-  }
-
-  if (nextSeasonError) {
-    return <ApiNotWorking />;
-  }
-
-  const upcoming = nextSeason || [];
-
+export default function NextSeasonAnimes() {
   return (
-    <>
-      <PagesTitles>Up Coming Next Season</PagesTitles>
-      <MainPagesGrid datas={upcoming} />
-    </>
+    <Suspense fallback={<Loading />}>
+      <NextSeasonAnimesContent />
+    </Suspense>
   );
-};
-
-export default NextSeasonAnimes;
+}

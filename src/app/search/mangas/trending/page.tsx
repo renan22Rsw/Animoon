@@ -1,32 +1,12 @@
 "use client";
-
-import ApiNotWorking from "@/components/ApiNotWorking/ApiNotWorking";
-import MainPagesGrid from "@/components/Grids/MainPagesGrid";
+import React, { Suspense } from "react";
 import Loading from "@/components/Loading/Loading";
-import PagesTitles from "@/components/Titles/PagesTitles";
-import useSeasonalMangas from "@/hooks/MangasHooks/SeasonalMangas/useSeasonalMangas";
-import React from "react";
+import TrendingMangasContent from "@/components/Contents/Mangas/TrendingMangasContent";
 
-const TrendingMangas = () => {
-  const { seasonalMangas, seasonalMangasIsError, seasonalMangasIsLoading } =
-    useSeasonalMangas();
-
-  if (seasonalMangasIsLoading) {
-    return <Loading />;
-  }
-
-  if (seasonalMangasIsError) {
-    return <ApiNotWorking />;
-  }
-
-  const trending = seasonalMangas || [];
-
+export default function TrendingMangas() {
   return (
-    <>
-      <PagesTitles>Trending Mangas</PagesTitles>
-      <MainPagesGrid datas={trending} />
-    </>
+    <Suspense fallback={<Loading />}>
+      <TrendingMangasContent />
+    </Suspense>
   );
-};
-
-export default TrendingMangas;
+}

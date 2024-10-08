@@ -3,7 +3,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactNode } from "react";
 import { mock } from "../mock";
 import { renderHook, waitFor } from "@testing-library/react";
-import { useGenresMangas } from "./useMangasGenres";
+import useGenresMangas from "./useMangasGenres";
 
 jest.mock("../../../api/MangaMainPage", () => ({
   fetchGenresMangas: jest.fn(),

@@ -1,5 +1,5 @@
 import { fetchSeasonsMangas } from "@/api/MangaMainPage";
-import TrendingMangas from "@/app/search/mangas/trending/page";
+import TrendingMangas from "@/components/Contents/Mangas/TrendingMangasContent";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { render, screen, waitFor } from "@testing-library/react";
 import { mockMangas } from "./mock";

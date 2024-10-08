@@ -7,7 +7,7 @@ import TrendingAnimes from "@/app/search/animes/trending/page";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { render, screen, waitFor } from "@testing-library/react";
 import { mockAnimes } from "./mock";
-import Top50Animes from "@/app/search/animes/top-50/page";
+import Top50Animes from "@/components/Contents/Animes/Top50Content";
 
 jest.mock("../../src/api/AnimeMainPage", () => ({
   fetchTopAnimes: jest.fn(),

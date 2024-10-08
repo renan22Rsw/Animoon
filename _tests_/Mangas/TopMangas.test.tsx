@@ -2,7 +2,7 @@ import { fetchTopMangas } from "@/api/MangaMainPage";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { render, screen, waitFor } from "@testing-library/react";
 import { mockMangas } from "./mock";
-import Top50Mangas from "@/app/search/mangas/top-50/page";
+import Top50Mangas from "@/components/Contents/Mangas/Top50Content";
 
 jest.mock("../../src/api/MangaMainPage", () => ({
   fetchTopMangas: jest.fn(),

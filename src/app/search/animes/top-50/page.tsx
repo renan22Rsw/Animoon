@@ -1,31 +1,11 @@
-"use client";
-
-import ApiNotWorking from "@/components/ApiNotWorking/ApiNotWorking";
-import MainPagesGrid from "@/components/Grids/MainPagesGrid";
+import React, { Suspense } from "react";
 import Loading from "@/components/Loading/Loading";
-import PagesTitles from "@/components/Titles/PagesTitles";
-import useTopAnimes from "@/hooks/AnimesHooks/TopAnimes/useTopAnimes";
-import React from "react";
+import Top50AnimesContent from "@/components/Contents/Animes/Top50Content";
 
-const Top50Animes = () => {
-  const { topAnimes, topAnimesError, topAnimesIsloading } = useTopAnimes();
-
-  if (topAnimesIsloading) {
-    return <Loading />;
-  }
-
-  if (topAnimesError) {
-    return <ApiNotWorking />;
-  }
-
-  const top = topAnimes || [];
-
+export default function Top50Animes() {
   return (
-    <>
-      <PagesTitles>Top 50 Animes</PagesTitles>
-      <MainPagesGrid datas={top} />
-    </>
+    <Suspense fallback={<Loading />}>
+      <Top50AnimesContent />
+    </Suspense>
   );
-};
-
-export default Top50Animes;
+}

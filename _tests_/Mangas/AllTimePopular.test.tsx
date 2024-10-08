@@ -2,7 +2,7 @@ import { fetchPopularMangas } from "@/api/MangaMainPage";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { render, screen, waitFor } from "@testing-library/react";
 import { mockMangas } from "./mock";
-import AllTimePopular from "@/app/search/mangas/popular/page";
+import AllTimePopular from "@/components/Contents/Mangas/PopularMangasContent";
 
 jest.mock("../../src/api/MangaMainPage", () => ({
   fetchPopularMangas: jest.fn(),
