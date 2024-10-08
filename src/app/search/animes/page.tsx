@@ -18,7 +18,7 @@ import useSearchGenre from "@/hooks/AnimesGenres/GenresAndSearch/useSearchGenre"
 import Link from "next/link";
 import ApiNotWorking from "@/components/ApiNotWorking/ApiNotWorking";
 
-export const AnimePage = () => {
+const AnimePage = () => {
   const query = useSearchParams();
   const parameterValue = query?.get("search");
   const genreParameter = query?.get("genres");
