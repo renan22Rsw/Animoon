@@ -19,7 +19,7 @@ import MainPagesGrid from "@/components/Grids/MainPagesGrid";
 import Link from "next/link";
 import ApiNotWorking from "@/components/ApiNotWorking/ApiNotWorking";
 
-const AnimePage = () => {
+const AnimePageContent = () => {
   const query = useSearchParams();
   const parameterValue = query?.get("search");
   const genreParameter = query?.get("genres");
@@ -141,4 +141,4 @@ const AnimePage = () => {
   );
 };
 
-export default AnimePage;
+export default AnimePageContent;
