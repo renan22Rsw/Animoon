@@ -33,8 +33,8 @@ const SubPageHeader = ({
 }: SubHeaderProps) => {
   return (
     <div>
-      <div className="bg-[#1C1C1C] pb-[30px] pt-[20px] h-[200px] text-[#9FADB3]  ">
-        <div className="max-w-[1200px]  hidden m-8 md:flex md:items-center lg:mx-10 2xl:mx-auto">
+      <div className=" pb-[30px] pt-[20px] text-[#9FADB3]  ">
+        <div className="max-w-[1200px]  hidden m-8 md:flex md:items-start lg:mx-10 2xl:mx-auto">
           <Image
             width={300}
             height={300}
@@ -46,7 +46,7 @@ const SubPageHeader = ({
             className="rounded-md "
             data-testid="desktop-version"
           />
-          <div className="my-4 mx-8  h-[300px]">
+          <div className="my-4 mx-8">
             <h2 className="text-[#ADC0D2] text-3xl font-bold py-2">{name}</h2>
             <p
               className="md:text-sm lg:text-sm"
@@ -56,7 +56,7 @@ const SubPageHeader = ({
               {alternativeName ? alternativeName.join(", ") : ""}
             </p>
 
-            <div className="relative top-[100px]">
+            <div className="my-8">
               {month || day ? (
                 <h4 data-testid="desktop-birthday">
                   Birthday: {month + "/" + day}
