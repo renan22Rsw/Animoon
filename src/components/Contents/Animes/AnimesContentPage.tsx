@@ -1,4 +1,5 @@
 import React from "react";
+
 import useSeasonalAnimes from "@/hooks/AnimesHooks/SeasonalAnimes/useSeasonalAnimes";
 import useTopAnimes from "@/hooks/AnimesHooks/TopAnimes/useTopAnimes";
 import useGenresAnimes from "@/hooks/AnimesGenres/Genres/useAnimesGenres";
@@ -10,27 +11,35 @@ import Loading from "@/components/Loading/Loading";
 import PagesTitles from "@/components/Titles/PagesTitles";
 import Column from "@/components/Columns/Column";
 import TopColumns from "@/components/TopColumns/Anime/TopColumns";
+
 import { useSearchParams } from "next/navigation";
+
 import MainPagesGrid from "@/components/Grids/MainPagesGrid";
+
 import Link from "next/link";
 import ApiNotWorking from "@/components/ApiNotWorking/ApiNotWorking";
 
-const AnimePageContent = () => {
+const AnimePage = () => {
   const query = useSearchParams();
   const parameterValue = query?.get("search");
   const genreParameter = query?.get("genres");
 
   const { seasonalAnime, seasonalIsloading, seasonalError } =
     useSeasonalAnimes();
+
   const { nextSeason, nextSeasonError, nextSeasonLoading } = useNextSeason();
+
   const { topAnimes, topAnimesError, topAnimesIsloading } = useTopAnimes();
+
   const {
     researchedAnimes,
     researchedAnimesIsError,
     researchedAnimeIsLoading,
   } = useResearchedAnimes(parameterValue);
+
   const { genresAnimes, genresAnimesIsError, genresAnimesIsLoading } =
     useGenresAnimes(genreParameter);
+
   const { searchGenreAnime, seachGenreAnimeIsError, seachGenreAnimeIsLoading } =
     useSearchGenre(parameterValue, genreParameter);
 
@@ -132,4 +141,4 @@ const AnimePageContent = () => {
   );
 };
 
-export default AnimePageContent;
+export default AnimePage;
