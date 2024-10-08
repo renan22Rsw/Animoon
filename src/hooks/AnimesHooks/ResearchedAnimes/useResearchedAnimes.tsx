@@ -1,7 +1,7 @@
 import { fetchResearchedAnimes } from "@/api/AnimeMainPage";
 import { useQuery } from "@tanstack/react-query";
 
-export const useResearchedAnimes = (parameter: string | null) => {
+const useResearchedAnimes = (parameter: string | null) => {
   const {
     data: researchedAnimes,
     isError: researchedAnimesIsError,
@@ -17,3 +17,5 @@ export const useResearchedAnimes = (parameter: string | null) => {
     researchedAnimeIsLoading,
   };
 };
+
+export default useResearchedAnimes;

@@ -4,17 +4,20 @@ import React from "react";
 
 import useSeasonalAnimes from "@/hooks/AnimesHooks/SeasonalAnimes/useSeasonalAnimes";
 import useTopAnimes from "@/hooks/AnimesHooks/TopAnimes/useTopAnimes";
+import useGenresAnimes from "@/hooks/AnimesGenres/Genres/useAnimesGenres";
+import useSearchGenre from "@/hooks/AnimesGenres/GenresAndSearch/useSearchGenre";
+import useResearchedAnimes from "@/hooks/AnimesHooks/ResearchedAnimes/useResearchedAnimes";
+import useNextSeason from "@/hooks/AnimesHooks/NextSeasonAnimes/useNextSeasonAnimes";
 
 import Loading from "@/components/Loading/Loading";
 import PagesTitles from "@/components/Titles/PagesTitles";
 import Column from "@/components/Columns/Column";
 import TopColumns from "@/components/TopColumns/Anime/TopColumns";
-import useNextSeason from "@/hooks/AnimesHooks/NextSeasonAnimes/useNextSeasonAnimes";
+
 import { useSearchParams } from "next/navigation";
-import { useResearchedAnimes } from "@/hooks/AnimesHooks/ResearchedAnimes/useResearchedAnimes";
+
 import MainPagesGrid from "@/components/Grids/MainPagesGrid";
-import { useGenresAnimes } from "@/hooks/AnimesGenres/Genres/useAnimesGenres";
-import useSearchGenre from "@/hooks/AnimesGenres/GenresAndSearch/useSearchGenre";
+
 import Link from "next/link";
 import ApiNotWorking from "@/components/ApiNotWorking/ApiNotWorking";
 

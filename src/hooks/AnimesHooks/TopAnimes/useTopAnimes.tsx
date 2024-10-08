@@ -1,7 +1,7 @@
 import { fetchTopAnimes } from "@/api/AnimeMainPage";
 import { useQuery } from "@tanstack/react-query";
 
-export const useTopAnimes = () => {
+const useTopAnimes = () => {
   const {
     data: topAnimes,
     error: topAnimesError,

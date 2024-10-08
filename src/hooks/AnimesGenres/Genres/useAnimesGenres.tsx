@@ -1,7 +1,7 @@
 import { fetchGenresAnimes } from "@/api/AnimeMainPage";
 import { useQuery } from "@tanstack/react-query";
 
-export const useGenresAnimes = (parameter: string | null) => {
+const useGenresAnimes = (parameter: string | null) => {
   const {
     data: genresAnimes,
     isError: genresAnimesIsError,
@@ -17,3 +17,5 @@ export const useGenresAnimes = (parameter: string | null) => {
     genresAnimesIsLoading,
   };
 };
+
+export default useGenresAnimes;

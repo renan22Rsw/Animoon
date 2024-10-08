@@ -1,7 +1,7 @@
 import { fetchGenresMangas } from "@/api/MangaMainPage";
 import { useQuery } from "@tanstack/react-query";
 
-export const useGenresMangas = (parameter: string | null) => {
+const useGenresMangas = (parameter: string | null) => {
   const {
     data: genresMangas,
     isError: genresMangasIsError,
@@ -17,3 +17,5 @@ export const useGenresMangas = (parameter: string | null) => {
     genresMangasIsLoading,
   };
 };
+
+export default useGenresMangas;

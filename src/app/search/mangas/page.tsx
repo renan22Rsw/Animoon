@@ -5,7 +5,7 @@ import React from "react";
 import useSeasonalMangas from "@/hooks/MangasHooks/SeasonalMangas/useSeasonalMangas";
 import useTopMangas from "@/hooks/MangasHooks/TopMangas/useTopMangas";
 import useResearchedMangas from "@/hooks/MangasHooks/ResearchMangas/useResearchedMangas";
-import { useGenresMangas } from "@/hooks/MangasGenres/Genre/useMangasGenres";
+import useGenresMangas from "@/hooks/MangasGenres/Genre/useMangasGenres";
 import usePopularMangas from "@/hooks/MangasHooks/PopularMangas/usePopularMangas";
 import useSearchGenreManga from "@/hooks/MangasGenres/GenresAndSearch/useSearchMangaGenre";
 

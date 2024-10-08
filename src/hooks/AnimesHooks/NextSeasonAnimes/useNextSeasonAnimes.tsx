@@ -1,7 +1,7 @@
 import { fetchNextSeason } from "@/api/AnimeMainPage";
 import { useQuery } from "@tanstack/react-query";
 
-export const useNextSeason = () => {
+const useNextSeason = () => {
   const {
     data: nextSeason,
     error: nextSeasonError,

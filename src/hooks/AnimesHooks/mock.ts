@@ -1,5 +1,3 @@
-import { Anime } from "@/types/anime";
-
 export const mock = {
   Page: {
     media: [
