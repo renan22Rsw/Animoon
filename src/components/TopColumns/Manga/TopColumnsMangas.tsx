@@ -40,7 +40,7 @@ const TopColumnsMangas = ({
             height={35}
             alt="Image-Column"
             style={{
-              width: "auto",
+              width: "50px",
               height: "auto",
             }}
           />

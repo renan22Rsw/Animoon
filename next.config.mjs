@@ -6,6 +6,7 @@ const nextConfig = {
 
   images: {
     remotePatterns: [{ protocol: "https", hostname: "*.anilist.co" }],
+    unoptimized: true,
   },
 };
 
