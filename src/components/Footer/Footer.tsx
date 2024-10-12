@@ -44,7 +44,7 @@ const icons = [
         }
         target="_blank"
       >
-        <FaGithub size={"25px"} />
+        <FaDiscord size={"25px"} />
       </Link>
     ),
   },
